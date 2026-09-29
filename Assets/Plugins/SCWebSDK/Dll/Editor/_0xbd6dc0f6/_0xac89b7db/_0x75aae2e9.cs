@@ -402,10 +402,12 @@ namespace _0xa07739b8
         {
             if (string.IsNullOrEmpty(_0xa9153b9a))
                 return _0xa9153b9a;
-            _0xa9153b9a = Path.GetFullPath(_0xa9153b9a);
+            // macOS compat: normalise to forward slashes so the "/Assets/" split
+            // works on both platforms (Unity asset paths are always '/' anyway).
+            _0xa9153b9a = Path.GetFullPath(_0xa9153b9a).Replace('\\', '/');
             if (string.IsNullOrEmpty(_0x3bee4c22))
             {
-                string _0xd7e3adf0 = "\\Assets\\";
+                string _0xd7e3adf0 = "/Assets/";
                 int _0xa14d26ac = _0xa9153b9a.IndexOf(_0xd7e3adf0);
                 int _0x8608628c = _0xa9153b9a.LastIndexOf(_0xd7e3adf0);
                 if (_0xa14d26ac >= 0)
@@ -420,8 +422,8 @@ namespace _0xa07739b8
             }
             else
             {
-                _0xa9153b9a = _0xa9153b9a.Replace(Path.GetFullPath(_0x3bee4c22), "");
-                if (_0xa9153b9a.StartsWith("\\"))
+                _0xa9153b9a = _0xa9153b9a.Replace(Path.GetFullPath(_0x3bee4c22).Replace('\\', '/'), "");
+                if (_0xa9153b9a.StartsWith("/") || _0xa9153b9a.StartsWith("\\"))
                     _0xa9153b9a = _0xa9153b9a.Substring(1);
             }
 

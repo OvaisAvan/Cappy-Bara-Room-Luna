@@ -119,11 +119,14 @@ namespace _0xa07739b8
             _0xa0e80e23 = _0xa0e80e23.Replace("\"export\": []", @"""export"": [
                 ""resources""
             ]");
+            // macOS/cross-platform: Luna's pipeline (Node.js) needs forward slashes
+            // here; the original ".\\Assets\\..." backslash paths silently fail to
+            // load on non-Windows, leaving pc.WebGLLib undefined ("not a constructor").
             _0xa0e80e23 = _0xa0e80e23.Replace("\"externalJSLibraries\": []", @"""externalJSLibraries"": [
-                "".\\Assets\\Plugins\\SCWebSDK\\webGL\\WebGLLib.js""
+                ""./Assets/Plugins/SCWebSDK/webGL/WebGLLib.js""
             ]");
             _0xa0e80e23 = _0xa0e80e23.Replace("\"externalSources\": []", @"""externalSources"": [
-                "".\\Assets\\Plugins\\SCWebSDK\\webGL""
+                ""./Assets/Plugins/SCWebSDK/webGL""
             ]");
             
             string _0xdb9c7b09 = @"(""default""\s*:\s*{\s*""data""\s*:\s*{\s*""alphabet""\s*:\s*""(?:[^""\\]|\\.)*""\s*,\s*""size""\s*:\s*\d+\s*,\s*""textureWidth""\s*:\s*)\d+(\s*,\s*""textureHeight""\s*:\s*)\d+";

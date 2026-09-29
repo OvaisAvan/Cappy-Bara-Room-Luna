@@ -441,20 +441,39 @@ namespace _0xa07739b8
             }
 
             string _0x0746a4ee = Path.GetFullPath(Application.dataPath + "/../");
-            string _0x68bfa735 = Path.Combine(_0x0d7d5f7c, "tools/node/win64/node.exe");
+            // macOS compat: the SDK's Luna launcher was Windows-only (cmd.exe +
+            // tools/node/win64/node.exe). On the Mac editor use the bundled
+            // tools/node/mac64/bin/node and run jake.js directly (no cmd shell).
+            bool _0xIsWinEditor = Application.platform == RuntimePlatform.WindowsEditor;
+            string _0x68bfa735 = Path.Combine(_0x0d7d5f7c,
+                _0xIsWinEditor ? "tools/node/win64/node.exe" : "tools/node/mac64/bin/node");
             string _0xa53dd414 = Path.Combine(_0x0d7d5f7c, "pipeline/jake.js");
             string _0xd6bd2d9b = Path.Combine(_0x0d7d5f7c, "pipeline");
             if (!File.Exists(_0x68bfa735))
             {
-                _0x16bd684c._0xe8f5e459("未找到 Luna 内置 Node.exe: {0}", _0x68bfa735);
+                _0x16bd684c._0xe8f5e459("未找到 Luna 内置 Node: {0}", _0x68bfa735);
                 return false;
             }
 
             _0x16bd684c.Log("开始执行 Luna project:deploy... \n项目根目录: {0}\n工作目录: {1}", _0x0746a4ee, _0xd6bd2d9b);
-            string _0x9f734f3e = $"/c \"\"{_0x68bfa735}\" \"{_0xa53dd414}\" project:deploy PROJECT_PATH=\"{_0x0746a4ee.TrimEnd('\\', '/')}\" LUNA_PACKAGE_PATH=\"{_0x0d7d5f7c.TrimEnd('\\', '/')}\" TARGET_PLATFORM=playground\"";
+            string _0xJakeArgs = $"\"{_0xa53dd414}\" project:deploy PROJECT_PATH=\"{_0x0746a4ee.TrimEnd('\\', '/')}\" LUNA_PACKAGE_PATH=\"{_0x0d7d5f7c.TrimEnd('\\', '/')}\" TARGET_PLATFORM=playground";
             _0x90a0e71c = new System.Diagnostics.Process();
-            _0x90a0e71c.StartInfo.FileName = "cmd.exe";
-            _0x90a0e71c.StartInfo.Arguments = _0x9f734f3e;
+            if (_0xIsWinEditor)
+            {
+                _0x90a0e71c.StartInfo.FileName = "cmd.exe";
+                _0x90a0e71c.StartInfo.Arguments = "/c \"\"" + _0x68bfa735 + "\" " + _0xJakeArgs + "\"";
+            }
+            else
+            {
+                try
+                {
+                    var _0xChmod = System.Diagnostics.Process.Start("/bin/chmod", "+x \"" + _0x68bfa735 + "\"");
+                    if (_0xChmod != null) _0xChmod.WaitForExit(2000);
+                }
+                catch { }
+                _0x90a0e71c.StartInfo.FileName = _0x68bfa735;
+                _0x90a0e71c.StartInfo.Arguments = _0xJakeArgs;
+            }
             _0x90a0e71c.StartInfo.WorkingDirectory = _0xd6bd2d9b;
             _0x90a0e71c.StartInfo.UseShellExecute = false;
             _0x90a0e71c.StartInfo.RedirectStandardOutput = true;

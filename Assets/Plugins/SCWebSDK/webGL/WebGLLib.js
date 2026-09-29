@@ -1,10 +1,21 @@
 
+// SC packaging can disable Luna analytics without initializing pi.env.
+// Mintegral still adds injectAdData; skip metadata collection only in that state.
+(function () {
+    var analytics = window.pi;
+    if (!analytics || typeof analytics.injectAdData !== 'function') return;
+    var injectAdData = analytics.injectAdData;
+    analytics.injectAdData = function () {
+        if (!this.env) return;
+        return injectAdData.apply(this, arguments);
+    };
+})();
+
 pc.WebGLLib = function () {
     console.log("[sc] :WebGLLib Init");
     window.scDownload = function () {
         window.___scDownload && window.___scDownload();
     };
-
     this.scDownloadCallBack = function () {
         console.log("[sc] : go download");
         if ((/iPhone|iPad/i.test(navigator.userAgent))) {
