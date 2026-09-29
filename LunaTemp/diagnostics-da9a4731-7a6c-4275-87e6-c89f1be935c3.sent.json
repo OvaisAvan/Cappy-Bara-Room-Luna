@@ -1,0 +1,348 @@
+{
+    "BuildID": "da9a4731-7a6c-4275-87e6-c89f1be935c3",
+    "Command": "TARGET_PLATFORM=playground",
+    "ProjectID": "877d01838a98c1e4f8a1396e9eb7ceb8",
+    "ProjectStateHash": "75ce55b45a4774fd27c13ef75edb4e23452c04198137b24261c681a6703e526c",
+    "StageCompletedAt": 3,
+    "EarliestFatalError": 0,
+    "StartTime": 1790675510867,
+    "EndTime": 1790675570398,
+    "PlaygroundUserID": 36092,
+    "OperatingSystem": "darwin",
+    "UnityPackageID": null,
+    "TargetPlatform": "playground",
+    "UnityVersion": "2022.3.62f2",
+    "LunaVersion": "7.2.0",
+    "LogCount": 14,
+    "Logs": [
+        {
+            "LogID": "1b19de78-db5e-4b8b-91c2-4f7d521cee0e",
+            "Order": 6,
+            "Timestamp": 1790675570845,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3005",
+            "Description": "You are using a Luna reserved keyword: Handle",
+            "Details": [
+                "You are using a reserved keyword: Handle for Luna. Please change the name of the field/class"
+            ],
+            "DescriptionValues": [
+                "Handle"
+            ],
+            "DetailsValues": [
+                "Handle"
+            ],
+            "LogCount": 1,
+            "LinePosition": 44,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Assets/Plugins/SCWebSDK/Dll/Scripts/_0x8a56ae2b/_0x173b7d5f/_0xc44ecc2a.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "76f8a1e2-0bd4-42a3-8dca-22ced7f429ec",
+            "Order": 6,
+            "Timestamp": 1790675570898,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3005",
+            "Description": "You are using a Luna reserved keyword: window",
+            "Details": [
+                "You are using a reserved keyword: window for Luna. Please change the name of the field/class"
+            ],
+            "DescriptionValues": [
+                "window"
+            ],
+            "DetailsValues": [
+                "window"
+            ],
+            "LogCount": 1,
+            "LinePosition": 28,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Assets/Plugins/SCWebSDK/Dll/Scripts/table/EnumTable.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "51fee79f-1051-4868-8436-ce8202b342cf",
+            "Order": 6,
+            "Timestamp": 1790675570898,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3005",
+            "Description": "You are using a Luna reserved keyword: audio",
+            "Details": [
+                "You are using a reserved keyword: audio for Luna. Please change the name of the field/class"
+            ],
+            "DescriptionValues": [
+                "audio"
+            ],
+            "DetailsValues": [
+                "audio"
+            ],
+            "LogCount": 1,
+            "LinePosition": 150,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Assets/Plugins/SCWebSDK/Dll/Scripts/table/EnumTable.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "7d47e176-8a43-4741-9b3e-0c28ef1742be",
+            "Order": 6,
+            "Timestamp": 1790675570905,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3005",
+            "Description": "You are using a Luna reserved keyword: window",
+            "Details": [
+                "You are using a reserved keyword: window for Luna. Please change the name of the field/class"
+            ],
+            "DescriptionValues": [
+                "window"
+            ],
+            "DetailsValues": [
+                "window"
+            ],
+            "LogCount": 1,
+            "LinePosition": 19,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Assets/Src/Config/Table/EnumTable.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "0193651e-f89a-404e-ad35-54fd1adcdf88",
+            "Order": 6,
+            "Timestamp": 1790675570905,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3005",
+            "Description": "You are using a Luna reserved keyword: audio",
+            "Details": [
+                "You are using a reserved keyword: audio for Luna. Please change the name of the field/class"
+            ],
+            "DescriptionValues": [
+                "audio"
+            ],
+            "DetailsValues": [
+                "audio"
+            ],
+            "LogCount": 1,
+            "LinePosition": 154,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Assets/Src/Config/Table/EnumTable.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "995d19ab-c77c-4705-b25e-4bdb87701f7b",
+            "Order": 6,
+            "Timestamp": 1790675571068,
+            "Stage": 3,
+            "ErrorType": 1,
+            "ErrorCode": "LP3006",
+            "Description": "You are not using the Luna API: Playable.InstallFullGame",
+            "Details": [
+                "You are not using the Luna API: Playable.InstallFullGame. Some ad networks require these calls. Please add these calls to ensure your playable works on all ad networks. Check documentation for more information."
+            ],
+            "DescriptionValues": [
+                "Playable",
+                "InstallFullGame"
+            ],
+            "DetailsValues": [
+                "Playable",
+                "InstallFullGame"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "c923286d-e507-4a6a-aff8-a4aecd70ba4a",
+            "Order": 6,
+            "Timestamp": 1790675571068,
+            "Stage": 3,
+            "ErrorType": 1,
+            "ErrorCode": "LP3015",
+            "Description": "You are not the Game Ended API: LifeCycle.GameEnded",
+            "Details": [
+                "You are not using the Game Ended API: LifeCycle.GameEnded. Some ad networks require this call, please add the event to avoid the ad being rejected."
+            ],
+            "DescriptionValues": [
+                "LifeCycle",
+                "GameEnded"
+            ],
+            "DetailsValues": [
+                "LifeCycle",
+                "GameEnded"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "96c91b9e-2a60-4fc2-9013-d083e7179547",
+            "Order": 6,
+            "Timestamp": 1790675571068,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3007",
+            "Description": "You are not using any custom events",
+            "Details": [
+                "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+            ],
+            "DescriptionValues": [
+                ""
+            ],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "8b2da881-577c-47a6-a5c1-46f78ef2952a",
+            "Order": 6,
+            "Timestamp": 1790675571069,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3011",
+            "Description": "You are not using any LunaPlaygroundFields attributes.",
+            "Details": [
+                "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+            ],
+            "DescriptionValues": null,
+            "DetailsValues": null,
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "643633e0-1cdf-4ab6-9d0c-c117a1380670",
+            "Order": 0,
+            "Timestamp": 1790675518888,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1014",
+            "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+            "Details": [
+                "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "315b25ba-c989-4205-bfe7-60e57bb6facd",
+            "Order": 1,
+            "Timestamp": 1790675518888,
+            "Stage": 1,
+            "ErrorType": 1,
+            "ErrorCode": "LP1023",
+            "Description": "Too many files for facebook platform",
+            "Details": [
+                "Too many files for facebook platform in use ($191) only $100 available"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "191",
+                "100"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "7c6c0551-16f8-440c-9ef7-a5feba048ccd",
+            "Order": 2,
+            "Timestamp": 1790675518900,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1032",
+            "Description": "Package(s) is not supported in Luna",
+            "Details": [
+                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+            ],
+            "DescriptionValues": [
+                "com.unity.timeline (1.7.7)"
+            ],
+            "DetailsValues": [
+                "com.unity.timeline"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/Packages/manifest.json",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "8633cbad-e951-4892-8f45-461a6583a397",
+            "Order": 3,
+            "Timestamp": 1790675518902,
+            "Stage": 1,
+            "ErrorType": 3,
+            "ErrorCode": "LP1002",
+            "Description": "Repeat wrap mode used on a texture with non power-of-two dimensions, this might not be rendered correctly.",
+            "Details": [
+                "Repeat wrap mode used on 'common_bg_05' texture at 'Assets/Resources/prefab/module/img/common/common_bg_05.png' with non power-of-two dimensions, this might not be rendered correctly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "common_bg_05",
+                "Assets/Resources/prefab/module/img/common/common_bg_05.png"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Assets/Resources/prefab/module/img/common/common_bg_05.png",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "150ef3e0-bceb-4aa6-8c53-b965a0f7c514",
+            "Order": 4,
+            "Timestamp": 1790675518902,
+            "Stage": 1,
+            "ErrorType": 3,
+            "ErrorCode": "LP1008",
+            "Description": "There are missing components on NativeAD_Display.",
+            "Details": [
+                "NativeAD_Display",
+                "NativeAD_Display"
+            ],
+            "DescriptionValues": [
+                "NativeAD_Display"
+            ],
+            "DetailsValues": [],
+            "LogCount": 2,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        }
+    ]
+}
