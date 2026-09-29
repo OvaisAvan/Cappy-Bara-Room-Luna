@@ -1,0 +1,8 @@
+物品id	类型	名字多语言id	描述多语言id	最大实例数，-1表示无限	单实例最大拥有数，-1表示无限	图片id	预制id	关联表	关联id	获得物品表现window.txt	品质
+string	string	string	string	int	int	string	string	string	string	string	int
+id	type	nameLangId	desLangId	insLimit	stackLimit	imgId	prefabId	tableName	tableId	winId	quality
+gold	gold	gold	金币	1	-1	ic_gold					1
+diamond	diamond	diamond	钻石	1	-1	ic_diamond					1
+closeAd	closeAd	CloseAd	去广告	1	1	ic_diamond					1
+timeLimitCloseAd	timeLimitCloseAd	CloseAd	去广告	1	-1	ic_diamond					1
+HintProp	HintProp	HintProp	提示道具	1	-1	HintProp					1

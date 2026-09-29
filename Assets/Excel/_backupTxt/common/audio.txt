@@ -1,0 +1,14 @@
+音乐ID	说明	音乐类型（1背景音乐，2音效）	音乐路径	音量	重叠间隔（s秒p百分比0~1）
+string	string	int	string	float	string
+id	des	type	path	volume	interval
+FlyCoinSound	飞金币声音	2	sc-sdk/audio/FlyCoinSound	1	1p
+fx_CoinAdd	增加金币声音	2	sc-sdk/audio/fx_CoinAdd	1	1p
+FlyGemsSound	飞钻石声音	2	sc-sdk/audio/FlyGemsSound	1	1p
+fx_DiamondsAdd	增加钻石声音	2	sc-sdk/audio/fx_DiamondsAdd	1	1p
+DefaultBtnClicked	默认按钮按下	2	audio/click	0.33	1p
+BGM	默认按钮按下	1	audio/bgm	0.2	1p
+StickerBGM	贴纸游戏背景音乐	1	audio/sticker_bgm	0.3	1p
+StickerPick	取贴纸音效	2	audio/sticker_pick	0.8	0.1s
+StickerPlace	粘贴音效	2	audio/sticker_place	0.8	0.1s
+StickerRefresh	刷新贴纸音效	2	audio/sticker_refresh	0.8	0.3s
+VictoryFireworks	胜利礼花音效	2	audio/Pass	0.8	0.5s

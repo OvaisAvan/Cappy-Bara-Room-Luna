@@ -1,0 +1,6 @@
+按钮功能	按钮正常路径id	按钮点击路径id	按钮失效路径id	按钮小图标路径id
+string	string	string	string	string
+id	normalImgId	clickImgId	disableImgId	smallImgId
+item	common_btn_cancel_normal	common_btn_cancel_press	common_btn_cancel_press	
+video	common_btn_confirm_normal	common_btn_confirm_press	common_btn_confirm_press	ic_video
+payment	common_btn_confirm_normal	common_btn_confirm_press	common_btn_confirm_press	

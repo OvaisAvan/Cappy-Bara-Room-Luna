@@ -1,0 +1,7 @@
+物品实例ID	物品ID	道具数量
+string	string	int
+id	itemId	count
+sys_gold	gold	0
+sys_diamond	diamond	0
+sys_closeAd	closeAd	0
+HintProp	HintProp	1

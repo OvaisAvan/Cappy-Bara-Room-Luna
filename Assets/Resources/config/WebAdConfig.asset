@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98179fd2e97ff224388a962ca9c9a40a, type: 3}
+  m_Name: WebAdConfig
+  m_EditorClassIdentifier: 
+  EEditorLanguage: 0
+  WindowConfigs:
+  - winName: LayerGame
+    prefab: {fileID: 3626120261760656055, guid: ed8300d3f9cd5674abcba2707419462b, type: 3}
+  - winName: LayerPause
+    prefab: {fileID: 4905379582622507080, guid: f147b492daaaaff4692f9ce3ac83bb74, type: 3}
+  - winName: LayerMainWeb
+    prefab: {fileID: 2731925103561113172, guid: 873beeb89e141fe44b94bebf37b6bdc6, type: 3}
+  - winName: LayerSettleWeb
+    prefab: {fileID: 2731925103561113172, guid: b2b3fda4fadb5be4592aeab5f31673c8, type: 3}
+  BUseSCFontTtf: 1
+  IAutoSettleDuration: 2147483647
+  IDebugLanguage: 1
+  eDebugWebPlatform: 2
+  fDebugCheckEnterGameTime: 10
+  fDebugAdDuration: 10
+  EGraphicsAPI: 2

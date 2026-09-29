@@ -1,0 +1,4 @@
+货币等级	货币倍率
+int	float
+lv	rate
+1	0.1

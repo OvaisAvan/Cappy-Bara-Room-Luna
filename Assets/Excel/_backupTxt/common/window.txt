@@ -1,0 +1,29 @@
+界面名	添加类型，0场景 1常驻	是否允许多开	说明	界面类自定义类名	叠加顺序	界面资源	显示横幅广告（none：无，bottom：底部，top：顶部）	是否过滤插屏图片	横幅广告类型highBanner(高版位，比普通横幅高度更高),normalBanner(普通版位)
+string	int	int	string	string	int	string	string	int	string
+id	type	more	des	customClassName	order	path	bannerType	RefuseFullPicture	bannerAdStyle
+SCDialogNotify	1	1	提示窗	SCDialogNotify	113	sc-sdk/ui/SCDialogNotify	none	1	
+SCTip	2	1	提示窗	SCTip	1000	sc-sdk/ui/SCTip	none	1	
+SCDialogOnNet	2	0	网络请求中	SCDialogOnNet	115	sc-sdk/ui/SCDialogOnNet	none	1	
+SCDialogShop	1	0	货币商店	SCDialogShop	50	sc-sdk/ui/SCDialogShop	none	1	
+LayerMain	0	0	游戏主界面	MyLayerMain	1	prefab/layer/LayerMain	none	1	
+NotifySettings	0	0	游戏设置界面	MyNotifySettings	11	prefab/layer/NotifySettings	none	0	
+LayerGame	0	0	游戏页面	MyLayerGame	2	prefab/layer/LayerGame	none	1	
+LayerPause	0	0	暂停页面	MyLayerPause	4	prefab/layer/LayerPause	none	1	
+LayerRevive	0	0	复活页面	MyLayerRevive	3	prefab/layer/LayerRevive	none	1	
+LayerSettleLose	0	0	失败页面	MyLayerSettleLose	5	prefab/layer/LayerSettleLose	none	0	
+LayerSettleWin	0	0	胜利页面	MyLayerSettleWin	6	prefab/layer/LayerSettleWin	none	0	
+NotifyAddInsList	1	1	获得实例，使用页面	NotifyAddInsList	100	prefab/module/ins/NotifyAddInsList	none	1	
+LayerStageLevel	1	0	关卡列表	LayerStageLevelBase	31	prefab/module/stageLevel/LayerStageLevel	bottom	1	normalBanner
+NotifyStageInfo	1	0	关卡列表二级界面	NotifyStageInfo	32	prefab/module/stageLevel/NotifyStageInfo	bottom	1	normalBanner
+SCLayerBannerTricks	1	0	横幅套路	SCLayerBannerTricks	10400	prefab/module/bannerTricks/SCLayerBannerTricks	none	1	normalBanner
+NotifySign	1	0	每日签到	NotifySign	33	prefab/module/sign/NotifySign	none	1	normalBanner
+NotifySceneryShop	1	0	景观列表页面	SC.Comp.Scenery.NotifySceneryShop	34	prefab/module/scenery/NotifySceneryShop	none	1	normalBanner
+SCNotifyMoreGame	1	0	更多精彩主页	SCNotifyMoreGame	35	prefab/module/moreGame/SCNotifyMoreGame	none	1	normalBanner
+LayerProp	0	0	道具不足	LayerProp	36	prefab/layer/LayerProp	none	1	normalBanner
+LayerPrimp	0	0	装扮界面	LayerPrimp	37	prefab/layer/LayerPrimp	none	1	normalBanner
+LayerBuyPrimp	0	0	装扮界面	LayerBuyPrimp	38	prefab/layer/LayerBuyPrimp	none	1	normalBanner
+LayerGetPrimp	0	0	装扮界面	LayerGetPrimp	39	prefab/layer/LayerGetPrimp	none	1	normalBanner
+LayerCollect	0	0	收藏界面	LayerCollect	40	prefab/layer/LayerCollect	none	1	normalBanner
+LayerUnLock	0	0	解锁界面	LayerUnLock	41	prefab/layer/LayerUnLock	none	1	normalBanner
+LayerCollectedContent	0	0	收藏详细界面	LayerCollectedContent	42	prefab/layer/LayerCollectedContent	none	1	normalBanner
+LayerPreview	0	0	预览界面	LayerPreview	43	prefab/layer/LayerPreview	none	1	normalBanner

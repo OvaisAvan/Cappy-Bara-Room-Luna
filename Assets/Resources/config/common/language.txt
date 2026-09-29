@@ -1,0 +1,8 @@
+字符串名	说明	中文	繁體	英文	土耳其语	西班牙语	葡萄牙语	俄罗斯语	法语	越南语	日语	韩语	阿拉伯	泰语	印度尼西亚语	德语	意大利语
+string	string	string	string	string	string	string	string	string	string	string	string	string	string	string	string	string	string
+StringName	Text	Chinese	ZhHant	English	Turkish	Spanish	Portuguese	Russian	French	Vietnamese	Japanese	Korean	Arabic	Thailand	Indonesia	German	Italian
+Cancel	取消	取消	取消	CANCEL	İPTAL	CANCELAR	CANCELAR	ОТМЕНА	ANNULER	HỦY	キャンセル	취소	إلغاء	ยกเลิก	BATALKAN	ABBRECHEN	ANNULLA
+Level	关卡	关卡	關卡	Level	Level	Level	Level	Level	Level	Level	Level	Level	Level	Level	Level	Level	Level
+SC_Pause	暂停	暂停	暫停	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED	PAUSED
+SC_Restart	重玩	重玩	重玩	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART	RESTART
+SC_Continue	继续	继续	繼續	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE	CONTINUE

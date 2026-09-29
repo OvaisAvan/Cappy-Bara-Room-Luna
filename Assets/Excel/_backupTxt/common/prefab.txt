@@ -1,0 +1,9 @@
+名字	资源路径	界面类自定义类名	说明
+string	string	string	string
+id	path	customClassName	des
+SCEffectFlyGold	sc-sdk/anim/SCEffectFlyGold	SC.SCEffectFlyGold	飘金币
+SCEffectFlyDiamond	sc-sdk/anim/SCEffectFlyDiamond	SC.SCEffectFlyDiamond	飘钻石
+InsItemShowRender	prefab/module/ins/component/InsItemShowRender	SC.Comp.InsItemShowRender	单个道具实例显示
+StageAwardItem	prefab/module/stageLevel/component/StageAwardItem	SC.Comp.InsItemShowRender	关卡奖励元素
+StageLevelItemRenderer	prefab/module/stageLevel/component/StageLevelItemRenderer		关卡元素
+StageLevelPageRenderer	prefab/module/stageLevel/component/StageLevelPageRenderer		章节页面预制体

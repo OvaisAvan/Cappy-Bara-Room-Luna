@@ -1,0 +1,252 @@
+中文	英文
+string	string
+Chinese	English
+打包	Build
+运行打包后文件	Run Built Package
+完成后自动打开模式	Auto-Open After Build
+是否开启日志	Is Open Log
+打包并转Html	Build & Export HTML
+打包并转Html(base64)	Build & Export HTML (Base64)
+仅转html(base122)	Export HTML Only (Base122)
+仅转html(base64)	Export HTML Only (Base64)
+升级SDK	Update SDK
+生成字体	Generate Font Asset
+横竖屏	Orientation
+横竖屏切换(空格)	Toggle Orientation (Space)
+横竖屏保存(S)	Save Orientation (S)
+删除	Delete
+无效的挂载脚本	Missing Script
+空文件夹	Empty Folder
+旧版资源	Legacy Assets
+删除无用的库	Remove Unused Libraries
+组件替换	Component Replacement
+重新导入SDK(包括资源)	Re-import SDK (Including Resources)
+使用默认字体	Use Default Font
+开启日志	Open Log
+被换的组件	Original Component​
+子类：	Child Class:​
+父类：	Parent Class:​
+换成的组件	Replaced components
+保留的属性	Preserve Properties
+总保留的属性:	Preserved Properties Total:
+保存引用(第一步)	Step 1: Save References​
+替换组件(第二步)	Step 2: Replace Components​
+修复引用(第三步)	Step 3: Fix References​
+请确定是否不替换父类	Skip Parent Class?​
+SDK路径不存在，请去网站下载升级包，根据文档进行升级	SDK path missing. Download upgrade package from [website]
+升级完成	Update Complete​
+增加	Add
+清空	Clear All​
+提示	Alert​
+请先导出Web包	Export Web Build First​
+确定	OK
+打包成功	Build Succeeded​
+打包失败，请检查html文件大小	Build Failed: Check HTML size​
+导出成功	Export Succeeded​
+导出失败，请检查文件大小	Export Failed: Check file size​
+导出失败	Export Failed
+{0} 文件超过最大值，还要减少{1}字节({2}KB))，胜利就在眼前了，加油加油！！！	{0} The file exceeds the maximum value and has to be reduced by {1} bytes ({2} KB), victory is at hand, go go go!!!!
+{0} 文件 大小{1}KB，恭喜你成功了！！	{0} file size {1} KB, congratulations on your success!
+manifest.json 已更新，若是有报错，请根据报错提示还原库！	manifest.json updated. Restore libraries if errors occur.​
+删除项目中空文件夹完成！	Empty Folders Cleared​
+删除无效脚本完成！	Missing Scripts Removed​
+删除预制体中无效脚本: {0}, delCount:{1}	Removed {1} Missing Scripts in Prefab: {0}​
+删除场景中无效脚本: {0}, delCount:{1}	Removed {1} Missing Scripts in Scene: {0}​
+编辑器刷新完成！	Editor Refreshed​
+开始初始化	Initializing​
+首次初始化完成	Initialization Complete​
+检测到其他sdk，已自动删除	Other sdk detected, removed automatically
+当前{0}的meta文件GUID不正确，已自动修复！{1} => {2}	The current meta file GUID for {0} is incorrect and has been fixed automatically! {1} => {2}
+WebAdConfig 资源已创建并保存到: {0}	WebAdConfig resource created and saved to: {0}
+预制体:{0}不存在！	Prefab:{0} does not exist!
+预制体实例化失败:{0}	Prefab Instantiation Failed:{0}
+创建变体完成	Variant Created​
+执行中...	performing operation...
+执行cmd命令{0}	Execute the cmd command {0}
+运行命令失败{0}\n{1}	Failure to run command {0}\n{1}
+来源路径为空，不能复制！	The source path is empty and cannot be copied!
+来源路径{0}不存在，不能复制！	The source path {0} does not exist and cannot be copied!
+CopyFile:{0}文件不存在	CopyFile:{0} file does not exist
+来源中不存在:{0}文件夹	Folder Missing in Source: {0}​
+父目录不能拷贝到子目录！	Invalid Copy: Parent→Child Directory​
+当前项目中:{0}文件夹为空	Folder Empty: {0}​
+竖屏	vertical
+横屏	horizontal
+横竖屏切换，当前{0}	Horizontal and vertical screen switching, current {0}
+保存横竖屏数据	Save Orientation Settings​
+language表不存在,字体生成失败！	language table does not exist, font generation failed!
+默认字体库不存在。{0}	Default Font Missing: {0}​
+生成字体完成	Font Generated​
+当前python3未安装，请先安装python3，并设置环境变量全局。下载地址：https://www.python.org/downloads/windows/	Currently python3 is not installed, please install python3 first and set the environment variable globally. Download: https://www.python.org/downloads/windows/
+当前未安装 fonttools ，自动安装中...	fonttools is not currently installed, it is being installed automatically...
+安装 fonttools 失败！请手动安装。pip3 install fonttools	Installation of fonttools failed! Please install manually. pip3 install fonttools
+fonttools 安装成功	fonttools installed successfully
+请在build setting 勾选上对应的场景	Please check the corresponding scenario in the build setting.
+(python)自定义字体库生成失败。{0}	(python) Custom font library generation failed. {0}
+(python3)自定义字体库生成失败，尝试 python。{0}	(python3) Custom font library generation failed, try python. {0}
+自定义字体库生成成功\n{0}	Customized font library generated successfully\n{0}
+字体文件不存在！！请先生成字体！{0}	The font file does not exist! Please generate the font first! {0}
+字体文件GUID不存在！！请检查路径是否正确！{0}	The font file GUID does not exist! Please check the path is correct! {0}
+当前自定义字体库的meta文件GUID不正确，已自动修复！	The current meta file GUID for custom font libraries is incorrect and has been fixed automatically!
+恢复原来的字体	Restore Default Font​
+替换字体完成	Font Replaced​
+父目录不能拷贝到子目录！	Parent directories cannot be copied to subdirectories!
+当前项目中:{0}文件夹为空	The :{0} folder is empty in the current project
+未找到运行的 HTTP 服务器进程。	No running HTTP server process was found.
+编辑器多语言	Editor Language
+模拟前置视频播放时间(秒)(编辑器)	Analog front video playback time (seconds) (editor)
+待机跳转结算时长(秒)	Standby Jump Settlement Time (sec)
+模拟运行时多语言(编辑器)	Simulation runtime language (editor)
+模拟当前平台(编辑器)	Emulate the current platform (editor)
+检测OnEnterGameSuccess时间(秒)(编辑器)	Detect OnEnterGameSuccess time (seconds) (editor)
+打包结果:{0}, 路径:{1}	Packing result:{0}, path:{1}
+多语言图片（0.中,1.英）	Multi-language pictures (0:CN, 1:EN)
+<无可选组件>	<No components available>
+<无可保留属性>	<No properties to preserve>
+没有设置保留属性	No properties to preserve set
+注意：每一步，需要等待刷新完成后再下一步	Note: Wait for refresh to complete before the next step
+！！！请确定是否不替换父类	!!! Please confirm if you want to skip the parent class
+请先选择被换的组件	Please select the component to be replaced first
+保存引用完成	Save references complete
+请先选择被换的组件和换成的组件	Please select both the original and replacement components first
+替换组件完成	Component replacement complete
+修复引用完成	Fix references complete
+文件大小为0	File size is 0
+{0} 的资源预估生成的 HTML ({1}) 大小为 {2}KB [{3}KB ~ {4}KB]，超过 5MB 限制！	{0} estimated HTML ({1}) size is {2}KB [{3}KB ~ {4}KB], exceeds 5MB limit!
+当前 .unityweb 总大小: {0}KB，还需要减少约 {1} 字节 ({2}KB) 的原始资源，胜利就在眼前了，加油加油！！！	Current total .unityweb size: {0}KB. Need to reduce about {1} bytes ({2}KB) of raw assets. Victory is at hand, go go go!!!
+{0} 的资源预估生成的 HTML ({1}) 大小为 {2}KB [{3}KB ~ {4}KB]	{0} estimated HTML ({1}) size is {2}KB [{3}KB ~ {4}KB]
+当前 .unityweb 总大小: {0}KB，恭喜你成功了！！	Current total .unityweb size: {0}KB, congratulations!
+BuildReport 目录自动更新失败，请手动解决！{0}	BuildReport directory auto-update failed, please solve it manually! {0}
+BuildReport 路径不存在：{0}	BuildReport path does not exist: {0}
+升级BuildReport完成	BuildReport upgrade complete
+升级BuildReport	Upgrade BuildReport
+Luna 维护	Luna Maintenance
+常用开发工具	Common Dev Tools
+luna导入/升级	Luna Import/Upgrade
+luna初始化配置	Luna Init Config
+Luna全量检测	Luna Full Check
+luna字体生成	Luna Font Generate
+修复SDK组件丢失	Fix SDK Components
+开启Luna日志(旧)	Open Luna Log (Old)
+开启日志(html文件)	Open Log (HTML)
+luna矫正新	Luna Correction (New)
+合并html(文件夹)	Merge HTML (Folder)
+资源编码模式:	Encoding Mode:
+忽略检测报错:	Ignore Check Errors:
+拦截上传:	Intercept Upload:
+开启日志:	Open Log:
+其他	Other
+SDK版本	SDK Version
+发布时间	Release Time
+unity试玩	Unity Playable
+Luna试玩	Luna Playable
+SDK 维护	SDK Maintenance
+工程清理	Project Cleanup
+SC SDK	SC SDK
+修复Dll的sdk的脚本丢失	Fix Missing SDK Scripts (DLL)
+[LunaLog] 开始扫描产物目录以开启日志: {0}	[LunaLog] Start scanning product directory to enable logs: {0}
+[LunaLog] 已同步更新 Mintegral 压缩包: {0}	[LunaLog] Mintegral zip package updated: {0}
+[LunaLog] 已同步更新 Google 压缩包: {0}	[LunaLog] Google zip package updated: {0}
+[LunaLog] 未找到对应的 Google 压缩包: {0}	[LunaLog] Google zip package not found: {0}
+已根据配置开启 Luna 运行时日志 (window.scOpenLog = true)	Luna runtime logs enabled (window.scOpenLog = true)
+[LunaLog] 开启日志异常: {0}	[LunaLog] Exception enabling logs: {0}
+[LunaLog] 已修改 HTML 标志位: {0}	[LunaLog] HTML flag modified: {0}
+[LunaLog] 处理 HTML 异常: {0} {1}	[LunaLog] Exception processing HTML: {0} {1}
+未找到 Luna 构建临时目录,请先执行 Luna 构建(已被我们拦截上传): {0}	Luna build temp directory not found. Run Luna build first (upload intercepted): {0}
+在目录下未找到 ZIP 文件: {0}	No ZIP file found in directory: {0}
+[Luna] 已拷贝 zip 到项目根: {0} -> {1}	[Luna] Zip copied to project root: {0} -> {1}
+[Luna] 拷贝 zip 失败: {0}	[Luna] Failed to copy zip: {0}
+[Luna] 待解压的 zip 不存在: {0}	[Luna] Zip to extract does not exist: {0}
+[Luna] 已解压到本工程目录: {0}	[Luna] Extracted to project directory: {0}
+[Luna] 解压失败: {0}	[Luna] Extraction failed: {0}
+Zip条目路径非法，已阻止解压：{0}	Illegal zip entry path, extraction blocked: {0}
+已生成压缩包：{0}	Zip package generated: {0}
+导出 web-mobile 压缩包失败: {0}	Failed to export web-mobile zip: {0}
+[Luna] web-mobile 准备就绪,移交给调用者继续编排 ({0})...	[Luna] web-mobile ready, handing over to caller ({0})...
+[Luna] 准备 web-mobile 异常: {0}	[Luna] Exception preparing web-mobile: {0}
+[Luna] 构建完成,正在导出 web-mobile...	[Luna] Build complete, exporting web-mobile...
+[Luna构建] 全量检测发现错误，已停止打包。请先修复上述错误，或开启“忽略检测报错”强制打包。	[Luna Build] Full check failed. Build stopped. Fix errors or enable "Ignore Check Errors".
+[Luna] 构建完成！	[Luna] Build complete!
+[Luna] 构建打包成功！	[Luna] Build succeeded!
+启动 Luna 构建进程失败: {0}	Failed to start Luna build process: {0}
+未找到 Luna 内置 Node.exe: {0}	Luna built-in Node.exe not found: {0}
+开始执行 Luna project:deploy... \n项目根目录: {0}\n工作目录: {1}	Starting Luna project:deploy... \nProject Root: {0}\nWorking Dir: {1}
+[Luna] 构建合并失败 (退出码: {0})，正在导出详细日志：	[Luna] Build merge failed (Exit code: {0}), exporting detailed logs:
+----------------- 日志结束 -----------------	----------------- Log End -----------------
+请通过Luna的面板查看具体报错	Check Luna panel for specific errors
+[Luna] 已自动打开官方插件面板。	[Luna] Playworks Plugin panel opened automatically.
+开启Luna日志成功：{0}	Luna logs enabled successfully: {0}
+日志已处于开启状态 (window.scOpenLog = true)	Logs already enabled (window.scOpenLog = true)
+未在 HTML 中找到 "window.scOpenLog = false"，请检查文件内容。	"window.scOpenLog = false" not found in HTML. Check file content.
+开启Luna日志失败: {0}	Failed to enable Luna logs: {0}
+未找到 Jakefile.js，无法设置拦截状态: {0}	Jakefile.js not found, cannot set intercept state: {0}
+[Luna] 已{0}上传拦截 (Jakefile.js 已更新)	[Luna] Upload intercept {0} (Jakefile.js updated)
+开启	Enabled
+关闭	Disabled
+修改 Jakefile.js 失败: {0}	Failed to modify Jakefile.js: {0}
+资源清单已生成: {0} (共 {1} 个)\n包含以下资源:\n{2}	Resource manifest generated: {0} ({1} total)\nIncludes:\n{2}
+Luna 矫正完成，已使用模板生成新文件: {0} , 场景名: {1}	Luna correction complete. New file generated: {0}, Scene: {1}
+未找到模板文件: {0}	Template file not found: {0}
+未找到匹配的 script 或 img 数据，跳过替换。	No matching script or img data found, skipping replacement.
+Luna 矫正异常: {0}	Luna correction exception: {0}
+日志 JS 文件不存在: {0}	Log JS file not found: {0}
+未找到 window.addEventListener("luna:started", 监听器，Mintegral 日志可能无法自动开启。	window.addEventListener("luna:started" listener not found. Mintegral logs may not auto-enable.
+未找到 <script> 标签，无法插入日志脚本。	<script> tag not found, cannot insert log script.
+开启Luna日志完成，生成文件：{0}	Luna logs enabled. Generated file: {0}
+文件夹名解析失败: {0}	Failed to parse folder name: {0}
+文件夹父目录解析失败: {0}	Failed to parse parent directory: {0}
+[LunaMerge] 开始执行合并工具: {0}\n参数: {1} {2}	[LunaMerge] Executing merge tool: {0}\nArgs: {1} {2}
+合并失败：未找到外部工具生成的产物，请检查工具输出与日志。	Merge failed: Output not found. Check tool output and logs.
+合并失败：外部工具产物拷贝到项目目录失败。	Merge failed: Failed to copy output to project directory.
+合并成功，已输出到工程目录: {0}	Merge successful. Output: {0}
+Luna 合并异常: {0}	Luna merge exception: {0}
+[LunaMerge] web-mobile 目录不存在: {0}	[LunaMerge] web-mobile directory missing: {0}
+拷贝产物异常: {0}	Exception copying output: {0}
+[Luna] 打包并合并 html 完成,已输出: {0}	[Luna] Build and merge complete. Output: {0}
+[Luna] 合并 html 阶段异常: {0}	[Luna] Exception during HTML merge: {0}
+[Luna] 合并 html 完成,已输出: {0}	[Luna] HTML merge complete. Output: {0}
+[Luna] 合并文件夹异常: {0}	[Luna] Exception merging folder: {0}
+工具根目录不存在，请检查配置：{0}	Tool root directory missing. Check config: {0}
+Luna工具包不存在或为空，请手动解决！{0}	Luna toolkit missing or empty. Fix manually: {0}
+清理旧的Luna工具包：{0}	Cleaning old Luna toolkit: {0}
+Luna工具包拷贝完成，路径：{0}	Luna toolkit copy complete: {0}
+manifest.json 添加包引用: {0}	manifest.json package reference added: {0}
+请先进行luna的初始化	Initialize Luna first
+添加js库：{0}	JS library added: {0}
+luna初始化完成 (已同步贴图尺寸: 512x512)	Luna initialization complete (Texture size: 512x512)
+重载	Reload
+[LunaMgr] 已成功同步更新 luna.json (处理了转义字符)。	[LunaMgr] luna.json updated (escaped characters handled).
+[LunaMgr] 未在 luna.json 中找到对应的 font.default.data.alphabet 结构，同步失败。	[LunaMgr] font.default.data.alphabet structure not found in luna.json. Sync failed.
+[第三方检测] 项目中禁止使用包: {0} (发现于 manifest.json)	[Third-party Check] Forbidden package: {0} (found in manifest.json)
+[第三方检测] {0} 版本 {1} 不满足 {2} {3}，已强制更新至 {3}	[Third-party Check] {0} version {1} does not satisfy {2} {3}. Forced update to {3}.
+[第三方检测] {0} 版本 {1} 不满足 {2} {3}	[Third-party Check] {0} version {1} does not satisfy {2} {3}
+[第三方检测] 本地包 {0} (路径: {1}) 版本 {2} 不满足 {3} {4}	[Third-party Check] Local package {0} ({1}) version {2} does not satisfy {3} {4}
+[第三方检测] 项目中禁止使用包: {0} (发现于本地路径: {1})	[Third-party Check] Forbidden package: {0} (found in local path: {1})
+[禁用接口检测] 脚本: {0}, 模式: {1}, 原因: {2}	[Forbidden API Check] Script: {0}, Pattern: {1}, Reason: {2}
+[禁用接口检测] 完成。发现 {0} 处错误，{1} 处警告（含自动替换）。	[Forbidden API Check] Complete. Found {0} errors, {1} warnings (including replacements).
+[禁用类名检测] 发现禁用的类定义: {0} (路径: {1})	[Forbidden Class Check] Forbidden class definition: {0} ({1})
+[禁用类名检测] 完成。共发现 {0} 个禁用类定义。	[Forbidden Class Check] Complete. Found {0} forbidden class definitions.
+[禁用类名检测] 完成。未发现禁用类定义。	[Forbidden Class Check] Complete. No forbidden class definitions found.
+[Invoke检查] 脚本: {0}, 类: {1}, 找不到函数: "{2}" (路径: {3}) - 已自动注释	[Invoke Check] Script: {0}, Class: {1}, Method not found: "{2}" ({3}) - Auto-commented
+[Invoke检查] 完成。共检查了 {0} 个脚本中的 Invoke 调用，未发现异常。	[Invoke Check] Complete. Checked {0} scripts, no issues found.
+[Invoke检查] 完成。共发现 {0} 处非法的 Invoke 调用，已自动注释修复 {1} 处！	[Invoke Check] Complete. Found {0} illegal Invoke calls, auto-fixed {1}!
+[音效自动修复] 已将 {0} 修正为 Decompress OnLoad (路径: {1})	[Audio Auto-fix] {0} set to Decompress OnLoad ({1})
+[音效检查] 完成。共扫描了 {0} 个音频文件，全部符合要求。	[Audio Check] Complete. Scanned {0} audio files, all good.
+[音效检查] 完成。共发现并自动修复了 {0} 个音频文件。	[Audio Check] Complete. Found and fixed {0} audio files.
+[Luna全量检测] 检测完成，共发现 {0} 处错误！请先修复错误再继续。	[Luna Full Check] Complete. Found {0} errors! Fix them before continuing.
+[Luna全量检测] 所有检测项已执行完毕，未发现阻塞性错误。	[Luna Full Check] All checks passed. No blocking errors.
+[Luna全量检测] 执行出错: {0}	[Luna Full Check] Execution error: {0}
+[Luna自动检测] SDK首次加载，开始执行全量检测...	[Luna Auto Check] SDK first load, starting full check...
+[Luna Shader检测] 扫描 .shader 文件失败（将仅使用 t:Shader 结果）: {0}	[Luna Shader Check] Failed to scan .shader files (using t:Shader results only): {0}
+[Luna Shader自动修复] 已修复 Shader: {0}	[Luna Shader Auto-fix] Fixed Shader: {0}
+[Luna Shader自动修复] ImportAsset 失败（可忽略，Refresh 后会生效）: {0} (路径: {1})	[Luna Shader Auto-fix] ImportAsset failed (ignorable, will take effect after Refresh): {0} (Path: {1})
+[Luna Shader检测] {0}: {1} (路径: {2})	[Luna Shader Check] {0}: {1} (Path: {2})
+[Luna Shader检测] 完成。扫描 {0} 个 Shader，发现 {1} 处错误，{2} 处警告。	[Luna Shader Check] Complete. Scanned {0} Shaders, found {1} errors, {2} warnings.
+[Luna Shader检测] 完成。扫描 {0} 个 Shader，发现 {1} 处警告。	[Luna Shader Check] Complete. Scanned {0} Shaders, found {1} warnings.
+[Luna Shader检测] 完成。扫描 {0} 个 Shader，未发现异常。	[Luna Shader Check] Complete. Scanned {0} Shaders, no issues found.
+[Luna构建] 检测到 Luna 授权文件缺失，无法继续构建。请先打开 Luna 的面板成功构建一次（完成登录/授权）后再重试。	Luna authorization files missing. Build aborted. Please build once using the Luna panel (complete login/authorization) and try again.
+[Luna构建] 授权文件检测异常，已拦截构建：{0}	Authorization file detection exception, build intercepted: {0}
+Luna 构建拦截	Luna Build Intercepted
+检测到 Luna 授权文件缺失。\n请先使用 Luna 的官方面板成功构建一次（完成登录/授权）后再重试。	Luna authorization files missing.\nPlease build once using the official Luna panel (complete login/authorization) and try again.
+[HINT] 检测到 Unable to authorize user。请先使用 Luna 的面板成功构建一次（完成登录/授权）后再重试。	Detected "Unable to authorize user". Please build once using the Luna panel (complete login/authorization) and try again.
+知道了	Got it

@@ -1,0 +1,18 @@
+{
+    "name": "SCWebSDKEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fca9805dd8dfe3649afdf20e56bb826b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

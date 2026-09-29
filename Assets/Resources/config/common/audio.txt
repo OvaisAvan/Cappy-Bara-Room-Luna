@@ -1,0 +1,9 @@
+ID	Description	Type	Path	Volume	Interval
+string	string	int	string	float	string
+id	des	type	path	volume	interval
+DefaultBtnClicked	Button	2	audio/click	0.33	1p
+StickerBGM	Room music	1	audio/sticker_bgm	0.3	1p
+StickerPick	Sticker pick	2	audio/sticker_pick	0.8	0.1s
+StickerPlace	Sticker place	2	audio/sticker_place	0.8	0.1s
+StickerRefresh	Sticker refresh	2	audio/sticker_refresh	0.8	0.3s
+VictoryFireworks	Confetti	2	audio/Pass	0.8	0.5s

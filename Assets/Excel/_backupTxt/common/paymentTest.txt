@@ -1,0 +1,37 @@
+表id	显示顺序	说明	充值类型（策划无需配置，这是运营后台配置的礼包key值）	是否非消耗品	人民币	默认货币文本	换取货币（购买后获得货币的基数）	奖励比例（购买后额外获得钻石的数量=奖励比例/100*基数）	描述	图标	游戏类型	描述控件	购买类型(必须同步,防止本地缓存问题)（去广告:CloseAd购买钻石:BuyDiamond购买礼包:BuyPreferentialGift订阅:AutoSubscribe）	订阅分组
+int	int	string	string	int	float	string	int	int	string	string	string	string	string	int
+ID	ViewOrder	Name	PayType	IsNotConsumables	Money	MoneyText	Gold	Ratio	Text	Image	GameType	DscControlName	BuyType	Group
+1	0	CloseAd	xxx.xxx.xxx.remove_ad	1	2.99	2.99	0	0	buy to remove ads	CommonShopCloseAdImg			CloseAd	0
+2	1	购买钻石1	xxx.xxx.xxx.pay_2	0	0.99	0.99	10	100	buy to diamond	CommonShopGemsImg1			BuyDiamond	0
+3	2	购买钻石2	xxx.xxx.xxx.pay_3	0	2.99	2.99	30	10	buy to diamond	CommonShopGemsImg2			BuyDiamond	0
+4	3	购买钻石3	xxx.xxx.xxx.pay_4	0	4.99	4.99	50	10	buy to diamond	CommonShopGemsImg3			BuyDiamond	0
+5	4	购买钻石4	xxx.xxx.xxx.pay_5	0	9.99	9.99	100	15	buy to diamond	CommonShopGemsImg4			BuyDiamond	0
+6	5	购买钻石5	xxx.xxx.xxx.pay_6	0	19.99	19.99	200	20	buy to diamond	CommonShopGemsImg5			BuyDiamond	0
+7	6	购买钻石6	xxx.xxx.xxx.pay_7	0	49.99	49.99	500	30	buy to diamond	CommonShopGemsImg6			BuyDiamond	0
+8	8	钻石换金币1	gold_1	0	20		100000	0	buy to gold	CommonShopCoinsImg1			1	0
+9	9	钻石换金币2	gold_2	0	30		150000	0	buy to gold	CommonShopCoinsImg2			1	0
+10	10	钻石换金币3	gold_3	0	50		250000	0	buy to gold	CommonShopCoinsImg3			1	0
+11	11	钻石换金币4	gold_4	0	100		500000	0	buy to gold	CommonShopCoinsImg4			1	0
+12	12	钻石换金币5	gold_5	0	200		1000000	0	buy to gold	CommonShopCoinsImg5			1	0
+13	13	钻石换金币6	gold_6	0	300		1500000	0	buy to gold	CommonShopCoinsImg6			1	0
+32	34	自动订阅（周）	dragonbomb.fancygo.penhg.weeksub1	0	68	9.99	0	20	buy 1 week auto subscribe	CommonShopGemsImg5			AutoSubscribe	0
+33	35	自动订阅（月）	dragonbomb.fancygo.penhg.monthsub2	0	128	19.99	0	60	buy 1 month auto subscribe	CommonShopGemsImg5			AutoSubscribe	0
+34	36	自动订阅（年）	dragonbomb.fancygo.penhg.yearsub3	0	328	59.99	0	80	buy 1 year auto subscribe	CommonShopGemsImg5			AutoSubscribe	0
+199	7	0.99美元礼包	dragonbomb.fancygo.penhg.purle	0	0.99	0.99	0	0	buy to gift				BuyPreferentialGift	0
+1199	8	1.99美元礼包	dragonbomb.fancygo.penhg.gp199	0	1.99	1.99	0	0	buy to gift				BuyPreferentialGift	0
+1299	9	2.99美元礼包	dragonbomb.fancygo.penhg.machine	0	2.99	2.99	0	0	buy to gift				BuyPreferentialGift	0
+1399	10	3.99美元礼包	dragonbomb.fancygo.penhg.gp399	0	3.99	3.99	0	0	buy to gift				BuyPreferentialGift	0
+1499	11	4.99美元礼包	dragonbomb.fancygo.penhg.gp499	0	4.99	4.99	0	0	buy to gift				BuyPreferentialGift	0
+1699	12	6.99美元礼包	dragonbomb.fancygo.penhg.gp699	0	6.99	6.99	0	0	buy to gift				BuyPreferentialGift	0
+1999	13	9.99美元礼包	dragonbomb.fancygo.penhg.egg	0	9.99	9.99	0	0	buy to gift				BuyPreferentialGift	0
+11299	14	12.99美元礼包	dragonbomb.fancygo.penhg.gp1299	0	12.99	12.99	0	0	buy to gift				BuyPreferentialGift	0
+11599	15	15.99美元礼包	dragonbomb.fancygo.penhg.gp1599	0	15.99	15.99	0	0	buy to gift				BuyPreferentialGift	0
+11899	16	18.99美元礼包	dragonbomb.fancygo.penhg.gp1899	0	18.99	18.99	0	0	buy to gift				BuyPreferentialGift	0
+11999	17	19.99美元礼包	dragonbomb.fancygo.penhg.skill	0	19.99	19.99	0	0	buy to gift				BuyPreferentialGift	0
+12199	18	21.99美元礼包	dragonbomb.fancygo.penhg.gp2199	0	21.99	21.99	0	0	buy to gift				BuyPreferentialGift	0
+12499	19	24.99美元礼包	dragonbomb.fancygo.penhg.gp2499	0	24.99	24.99	0	0	buy to gift				BuyPreferentialGift	0
+12799	20	27.99美元礼包	dragonbomb.fancygo.penhg.gp2799	0	27.99	27.99	0	0	buy to gift				BuyPreferentialGift	0
+12999	21	29.99美元礼包	dragonbomb.fancygo.penhg.gp2999	0	29.99	29.99	0	0	buy to gift				BuyPreferentialGift	0
+13999	22	39.99美元礼包	dragonbomb.fancygo.penhg.gp3999	0	39.99	39.99	0	0	buy to gift				BuyPreferentialGift	0
+14999	23	49.99美元礼包	dragonbomb.fancygo.penhg.middlegem	0	49.99	49.99	0	0	buy to gift				BuyPreferentialGift	0
+19999	24	99.99美元礼包	dragonbomb.fancygo.penhg.biggem	0	99.99	99.99	0	0	buy to gift				BuyPreferentialGift	0

@@ -1,0 +1,13 @@
+名字	资源路径	资源plist	说明
+string	string	string	string
+id	path	imagePlist	des
+bg_tips	sc-sdk/img/common/bg_tips		Tip背景
+dot	sc-sdk/img/bg/dot		点
+ic_diamond	prefab/module/img/common/ic_diamond		钻石
+ic_gold	prefab/module/img/common/ic_gold		金币
+ic_video	prefab/module/img/common/ic_video		视频
+common_btn_cancel_normal	prefab/module/img/common/common_btn_cancel_normal		按钮取消正常样式
+common_btn_cancel_press	prefab/module/img/common/common_btn_cancel_press		按钮取消点击样式
+common_btn_confirm_normal	prefab/module/img/common/common_btn_confirm_normal		按钮确定正常样式
+common_btn_confirm_press	prefab/module/img/common/common_btn_confirm_press		按钮确定点击样式
+HintProp	prefab/module/img/common/ic_diamond		提示道具
