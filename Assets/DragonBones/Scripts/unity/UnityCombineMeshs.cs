@@ -48,7 +48,12 @@ namespace DragonBones
         private void Start()
         {
             this._unityArmature = GetComponent<UnityArmatureComponent>();
+#if UNITY_LUNA
+            // Luna 不支持 Mesh.CombineMeshes：不合并网格，各插槽使用各自网格渲染
+            this._isCanCombineMesh = false;
+#else
             this._isCanCombineMesh = true;
+#endif
             this.dirty = true;
         }
 

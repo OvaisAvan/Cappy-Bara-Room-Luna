@@ -185,6 +185,8 @@ namespace DragonBones {
             }
         }
 
+#if !UNITY_LUNA
+        // Luna（试玩广告）不支持 GL 立即模式绘制；这里只是骨骼/包围盒调试绘制
         void OnRenderObject() {
             var drawed = DragonBones.debugDraw || this.debugDraw;
             if (drawed) {
@@ -302,6 +304,7 @@ namespace DragonBones {
             }
 
         }
+#endif
 
         /// <inheritDoc/>
         public void Dispose(bool disposeProxy = true) {

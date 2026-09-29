@@ -292,12 +292,20 @@ namespace DragonBones.MiniJSON {
 
                 if (number.IndexOf('.') == -1 && number.IndexOf('E') == -1 && number.IndexOf('e') == -1) {
                     long parsedInt;
+#if UNITY_LUNA
+                    Int64.TryParse(number, out parsedInt);
+#else
                     Int64.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out parsedInt);
+#endif
                     return parsedInt;
                 }
 
                 double parsedDouble;
+#if UNITY_LUNA
+                Double.TryParse(number, out parsedDouble);
+#else
                 Double.TryParse(number, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out parsedDouble);
+#endif
                 return parsedDouble;
             }
 

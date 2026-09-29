@@ -109,7 +109,9 @@ namespace DragonBones
                 this.sharedMesh = GenerateMesh();
             }
 
+#if !UNITY_LUNA // Luna 下 UnityCombineMeshs 不会合并网格，此路径不会执行
             this.sharedMesh.CombineMeshes(combines);
+#endif
 
             //
             this.uvBuffers = this.sharedMesh.uv;
@@ -206,7 +208,9 @@ namespace DragonBones
 
             //
             this.sharedMesh.Clear();
+#if !UNITY_LUNA // Luna 下 UnityCombineMeshs 不会合并网格，此路径不会执行
             this.sharedMesh.CombineMeshes(combines);
+#endif
             //
             this.uvBuffers = newUVs;
             this.vertexBuffers = newVertices;
