@@ -1,31 +1,22 @@
+using DG.Tweening;
 using SC;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 第八关界面：进度、暂停与免费提示。
+/// 第八关界面：左上角已放置数量计数（试玩广告不含暂停与提示按钮）。
 /// </summary>
 public class MyLayerGame : SC.WindowLogic {
-    private const float DEFAULT_PROGRESS_BAR_ANIMATION_DURATION = 0.5f;
-    public Text levelText;
-    public Image progressBar;
-    public GameObject hintButton;
+    private const float DEFAULT_COUNTER_ANIMATION_DURATION = 0.5f;
+    private const float COUNTER_PUNCH_SCALE = 0.15f;
+    public RectTransform counterPanel;
+    public Text counterText;
     private Transform cachedBackgroundCanvasTransform;
-
-    public override void OnInit(object userData) {
-        base.OnInit(userData);
-        foreach (Button button in GetComponentsInChildren<Button>(true)) {
-            if (button.name == "BtnPause") button.onClick.AddListener(onClick_BtnPause);
-            if (button.name == "BtnHint") button.onClick.AddListener(onClick_BtnHint);
-        }
-    }
 
     public override void OnShow(object userData) {
         base.OnShow(userData);
         sc.sdk.OnPluginGameStart();
-        if (levelText != null) levelText.text = sc.language.Get("Level") + " 8";
-        if (hintButton != null) hintButton.SetActive(true);
         CreateLevelBackground();
         LevelManager.Instance.RestartLevel();
     }
@@ -33,24 +24,13 @@ public class MyLayerGame : SC.WindowLogic {
     public override void OnHide(object userData) {
         base.OnHide(userData);
         StopAllCoroutines();
+        if (counterPanel != null) counterPanel.DOKill(true);
         RemoveLevelBackground();
     }
 
     public void ResetRoundUI() {
         StopAllCoroutines();
-        if (progressBar != null) progressBar.fillAmount = 0f;
-        if (hintButton != null) hintButton.SetActive(true);
-        StartCoroutine(DelayedInitializeProgressBar());
-    }
-
-    private void onClick_BtnPause() {
-        if (LevelManager.Instance == null || LevelManager.Instance.IsRestarting) return;
-        sc.window.ShowWindow(EnumTable.window.LayerPause);
-    }
-
-    private void onClick_BtnHint() {
-        if (LevelManager.Instance == null || LevelManager.Instance.IsRestarting) return;
-        GuideManager.Instance?.CreateHintGuideFinger();
+        StartCoroutine(DelayedRefreshCounter());
     }
 
     private bool CheckDataManager() {
@@ -66,16 +46,9 @@ public class MyLayerGame : SC.WindowLogic {
         return DataManager.Instance.gameConfig;
     }
 
-    private float CalculateProgressValue() {
-        if (!CheckLevelManager()) return 0f;
-        int total = LevelManager.Instance.GetTotalWaveChildrenCount();
-        int completed = LevelManager.Instance.GetCompletedWaveChildrenCount();
-        return total > 0 ? (float)completed / total : 0f;
-    }
-
-    private float GetProgressBarAnimationDuration() {
+    private float GetCounterAnimationDuration() {
         GameConfig config = GetGameConfig();
-        return config != null ? config.progressBarAnimationDuration : DEFAULT_PROGRESS_BAR_ANIMATION_DURATION;
+        return config != null ? config.progressBarAnimationDuration : DEFAULT_COUNTER_ANIMATION_DURATION;
     }
 
     private Transform GetBackgroundCanvasTransform() {
@@ -154,7 +127,7 @@ public class MyLayerGame : SC.WindowLogic {
         }
     }
 
-    private IEnumerator DelayedInitializeProgressBar() {
+    private IEnumerator DelayedRefreshCounter() {
         yield return null; // 等待一帧，确保LevelController.Start()已执行
 
         int retryCount = 0;
@@ -163,67 +136,29 @@ public class MyLayerGame : SC.WindowLogic {
             retryCount++;
         }
 
-        InitializeProgressBar();
+        RefreshCounter();
     }
 
-    public void InitializeProgressBar() {
-        if (progressBar == null) return;
+    /// <summary>
+    /// 显示已放置数量 / 总数（例如 "0 / 25"）
+    /// </summary>
+    public void RefreshCounter() {
+        if (counterText == null || !CheckLevelManager()) return;
 
-        float progress = CalculateProgressValue();
-        progressBar.fillAmount = progress;
-
-        UpdateStickerLayerText();
+        int total = LevelManager.Instance.GetTotalWaveChildrenCount();
+        int completed = LevelManager.Instance.GetCompletedWaveChildrenCount();
+        counterText.text = completed + " / " + total;
     }
 
-    public void SmoothUpdateProgressBar(float duration = -1f) {
-        if (progressBar == null) return;
+    /// <summary>
+    /// 放置成功后刷新计数并弹一下面板
+    /// </summary>
+    public void BumpCounter() {
+        RefreshCounter();
+        if (counterPanel == null) return;
 
-        float targetProgress = CalculateProgressValue();
-
-        if (duration < 0) {
-            duration = GetProgressBarAnimationDuration();
-        }
-
-        StartCoroutine(AnimateProgressBar(progressBar.fillAmount, targetProgress, duration));
-        UpdateStickerLayerText();
-    }
-
-    private IEnumerator AnimateProgressBar(float startValue, float endValue, float duration) {
-        if (progressBar == null) yield break;
-
-        float elapsedTime = 0;
-        while (elapsedTime < duration) {
-            elapsedTime += Time.deltaTime;
-            progressBar.fillAmount = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
-            yield return null;
-        }
-
-        progressBar.fillAmount = endValue;
-    }
-
-    private void UpdateStickerLayerText() {
-        LevelController levelController = GetCurrentLevelController();
-        if (levelController == null) return;
-
-        GameObject stickerLayerObj = levelController.GetStickerLayer();
-        if (stickerLayerObj == null) return;
-
-        StickerLayer stickerLayer = stickerLayerObj.GetComponent<StickerLayer>();
-        if (stickerLayer != null) {
-            stickerLayer.UpdateTextDisplay();
-        }
-    }
-
-    private LevelController GetCurrentLevelController() {
-        if (!CheckLevelManager()) {
-            return null;
-        }
-
-        GameObject currentLevel = LevelManager.Instance.GetCurrentLevel();
-        if (currentLevel == null) {
-            return null;
-        }
-
-        return currentLevel.GetComponent<LevelController>();
+        counterPanel.DOKill(true);
+        counterPanel.DOPunchScale(Vector3.one * COUNTER_PUNCH_SCALE, GetCounterAnimationDuration(), 6, 0.5f)
+            .SetLink(counterPanel.gameObject);
     }
 }

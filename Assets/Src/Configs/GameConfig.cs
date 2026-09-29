@@ -33,6 +33,15 @@ public class GameConfig : ScriptableObject {
 
     #endregion
 
+    #region 试玩设置
+
+    [Header("试玩设置")]
+    [CustomLabel("无操作结算时间")]
+    [Tooltip("玩家连续无操作达到该时间（秒）后进入无操作结算")]
+    public float idleSettleSeconds = 15f;
+
+    #endregion
+
     #region 音效设置
 
     [Header("音效设置")]

@@ -370,7 +370,7 @@ public class StickerItem : MonoBehaviour {
     /// 处理输入事件（鼠标和触摸）
     /// </summary>
     private void HandleInput() {
-        if (Time.timeScale == 0f || LevelManager.Instance == null || LevelManager.Instance.IsRestarting) return;
+        if (Time.timeScale == 0f || PlayableFlow.IsEnded || LevelManager.Instance == null || LevelManager.Instance.IsRestarting) return;
         if (Input.touchSupported && Input.touchCount > 0) {
             HandleTouchInput();
         } else {
@@ -611,7 +611,7 @@ public class StickerItem : MonoBehaviour {
         };
         DataManager.Instance.SaveLevelData(levelName, levelData);
         UpdateCompletedStickerCount();
-        stickerManager.DestroyDragStickerWithAnimation(originalStickerItem.gameObject);
+        stickerManager.ShrinkTraySticker(originalStickerItem.gameObject);
     }
 
 
@@ -623,7 +623,7 @@ public class StickerItem : MonoBehaviour {
             LevelManager.Instance.IncrementCompletedWaveChildrenCount();
             MyLayerGame myLayerGame = GetOrCacheMyLayerGame();
             if (myLayerGame != null) {
-                myLayerGame.SmoothUpdateProgressBar();
+                myLayerGame.BumpCounter();
             }
         }
     }

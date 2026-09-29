@@ -320,7 +320,7 @@ public class GuideManager : MonoBehaviour {
 
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>() ?? obj.GetComponentInChildren<SpriteRenderer>();
         if (sr != null && anchor.HasValue) {
-            Bounds b = sr.localBounds;
+            Bounds b = GameUtils.GetLocalBounds(sr);
             Vector3 localPos = new Vector3(
                 Mathf.Lerp(b.min.x, b.max.x, anchor.Value.x),
                 Mathf.Lerp(b.min.y, b.max.y, anchor.Value.y),
@@ -387,7 +387,7 @@ public class GuideManager : MonoBehaviour {
                 ?? handTransform.GetComponentInChildren<Renderer>();
 
             if (handRenderer != null) {
-                Bounds handBounds = handRenderer.localBounds;
+                Bounds handBounds = GameUtils.GetLocalBounds(handRenderer);
                 topLeftOffset = handTransform.localPosition + new Vector3(
                     handBounds.min.x,
                     handBounds.max.y,

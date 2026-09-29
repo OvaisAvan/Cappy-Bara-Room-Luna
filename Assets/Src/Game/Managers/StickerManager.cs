@@ -706,7 +706,7 @@ public class StickerManager : MonoBehaviour {
     /// <param name="anchor">锚点值（0-1范围）</param>
     /// <returns>计算出的目标位置（Vector3）</returns>
     private Vector3 CalculatePositionFromSpriteRenderer(SpriteRenderer spriteRenderer, Vector2 anchor) {
-        Bounds localBounds = spriteRenderer.localBounds;
+        Bounds localBounds = GameUtils.GetLocalBounds(spriteRenderer);
         Vector3 localMin = localBounds.min;  // 左下角（本地坐标）
         Vector3 localMax = localBounds.max;  // 右上角（本地坐标）
         return new Vector3(
@@ -776,7 +776,7 @@ public class StickerManager : MonoBehaviour {
                 ?? handTransform.GetComponentInChildren<Renderer>();
 
             if (handRenderer != null) {
-                Bounds handBounds = handRenderer.localBounds;
+                Bounds handBounds = GameUtils.GetLocalBounds(handRenderer);
                 // 左上角（锚点0,1）：X轴最小（左），Y轴最大（上）
                 // bounds.min = 左下角，bounds.max = 右上角
                 // 左上角 = (bounds.min.x, bounds.max.y, bounds.center.z)
@@ -1112,29 +1112,16 @@ public class StickerManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// 执行缩小动画后删除拖动贴纸
+    /// 托盘贴纸放置成功后缩小隐藏，但保留占位（与参考试玩一致，其余贴纸不移位）；
+    /// 下一波次刷新托盘时统一清理。
     /// </summary>
-    /// <param name="dragStickerObject">要删除的拖动贴纸对象</param>
-    public void DestroyDragStickerWithAnimation(GameObject dragStickerObject) {
-        if (dragStickerObject == null) {
-            return;
-        }
+    /// <param name="traySticker">托盘上的原始贴纸对象</param>
+    public void ShrinkTraySticker(GameObject traySticker) {
+        if (traySticker == null) return;
 
-        Transform targetTransform = dragStickerObject.transform;
-        if (targetTransform == null) {
-            Destroy(dragStickerObject);
-            return;
-        }
-
-        float duration = GetAnimationDuration(true);
-        targetTransform.DOScale(Vector3.zero, duration)
+        traySticker.transform.DOScale(Vector3.zero, GetAnimationDuration(true))
             .SetEase(Ease.InBack)
-            .SetLink(targetTransform.gameObject)
-            .OnComplete(() => {
-                if (dragStickerObject != null) {
-                    Destroy(dragStickerObject);
-                }
-            });
+            .SetLink(traySticker);
     }
     #endregion
 
@@ -1181,7 +1168,7 @@ public class StickerManager : MonoBehaviour {
     /// </summary>
     /// <param name="stickerName">贴纸名称</param>
     /// <returns>预制体对象，如果加载失败返回null</returns>
-    private GameObject LoadStickerPrefab(string stickerName) {
+    public GameObject LoadStickerPrefab(string stickerName) {
         string stickerId = ExtractStickerName(stickerName);
         if (string.IsNullOrEmpty(stickerId)) return null;
         return Resources.Load<GameObject>(PREFAB_PATH_PREFIX + "Room/Sticker_" + stickerId + "_Prefab");

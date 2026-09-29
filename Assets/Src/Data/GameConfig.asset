@@ -17,4 +17,5 @@ MonoBehaviour:
   dragStickerDestroyAnimationDuration: 0.2
   guideFingerMoveAnimationDuration: 1.2
   progressBarAnimationDuration: 0.5
+  idleSettleSeconds: 15
   stickerRefreshAudioDelay: 0.2

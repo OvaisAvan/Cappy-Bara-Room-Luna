@@ -143,19 +143,21 @@ public class LevelManager : MonoBehaviour {
     /// 显示胜利界面（延迟执行，确保数据保存完成）
     /// </summary>
     public void ShowVictoryScreen() {
-        if (IsRestarting) return;
+        if (IsRestarting || PlayableFlow.IsEnded) return;
         IsRestarting = true;
+        // 礼花期间先锁定胜利结果，SDK 若在此期间结束也按胜利结算。
+        PlayableFlow.DeclareResult(PlayableResult.Won);
         GuideManager.Instance?.ResetGuideState();
         PlayFireworksEffect();
         StartCoroutine(ShowVictoryScreenDelayed());
     }
 
     /// <summary>
-    /// 延迟显示胜利界面
+    /// 礼花播放后进入胜利结算（不再自动重玩）
     /// </summary>
     private IEnumerator ShowVictoryScreenDelayed() {
         yield return new WaitForSeconds(victoryScreenDelay);
-        RestartLevel();
+        PlayableFlow.EndGame(PlayableResult.Won);
     }
 
     #endregion

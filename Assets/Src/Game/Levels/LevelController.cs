@@ -130,7 +130,8 @@ public class LevelController : MonoBehaviour {
             LoadDefaultLevel(levelName);
         }
 
-        FindObjectOfType<MyLayerGame>().InitializeProgressBar();
+        RefreshStickerTray();
+        FindObjectOfType<MyLayerGame>()?.RefreshCounter();
 
         // 加载完成后检查是否所有贴纸都已完成（用于处理杀死后台再进入的情况）
         StartCoroutine(CheckAlreadyCompletedCoroutine());
@@ -497,12 +498,6 @@ public class LevelController : MonoBehaviour {
             return;
         }
 
-        // 只有在游戏中进入下一波次时才播放刷新音效，加载关卡时不播放
-        if (!isLoadingLevel) {
-            // 延迟播放刷新贴纸音效（进入新的小阶段）
-            StartCoroutine(PlayRefreshAudioDelayed());
-        }
-
         WaveArray[currentWaveIndex].SetActive(true);
 
         waveChildren.Clear();
@@ -516,18 +511,43 @@ public class LevelController : MonoBehaviour {
             };
             InitializeSticker(child, levelData);
         }
+
+        // 延迟刷新托盘；只有在游戏中进入下一波次时才播放刷新音效，加载关卡时不播放
+        StartCoroutine(RefreshTrayDelayed(!isLoadingLevel));
     }
 
     /// <summary>
-    /// 延迟播放刷新音效
+    /// 延迟刷新托盘（等待上一个贴纸的缩小动画结束），并播放刷新音效
     /// </summary>
-    private IEnumerator PlayRefreshAudioDelayed() {
+    private IEnumerator RefreshTrayDelayed(bool playAudio) {
         float delay = DEFAULT_REFRESH_AUDIO_DELAY;
         if (DataManager.Instance != null && DataManager.Instance.gameConfig != null) {
             delay = DataManager.Instance.gameConfig.stickerRefreshAudioDelay;
         }
         yield return new WaitForSeconds(delay);
-        sc.audio.Play("StickerRefresh");
+        RefreshStickerTray();
+        if (playAudio) sc.audio.Play("StickerRefresh");
+    }
+
+    /// <summary>
+    /// 托盘只放当前波次未完成的贴纸，顺序与波次子节点一致
+    /// </summary>
+    private void RefreshStickerTray() {
+        StickerLayer layer = stickerLayer != null ? stickerLayer.GetComponent<StickerLayer>() : null;
+        if (layer == null || StickerManager.Instance == null) return;
+
+        List<GameObject> prefabs = new List<GameObject>();
+        foreach (GameObject child in GetCurrentWaveChildren()) {
+            if (child == null) continue;
+            StickerItem item = child.GetComponent<StickerItem>();
+            if (item != null && item.isCompleted) continue;
+
+            // 使用 Resources 中的原始贴纸预制（StickerArray 指向关卡内已切换为虚影图的节点）
+            GameObject prefab = StickerManager.Instance.LoadStickerPrefab(child.name);
+            if (prefab != null) prefabs.Add(prefab);
+            else Debug.LogWarning("托盘缺少贴纸预制: " + child.name);
+        }
+        layer.ShowWaveStickers(prefabs);
     }
 
     #endregion

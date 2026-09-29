@@ -97,12 +97,10 @@ public class StickerLayer : MonoBehaviour {
     }
 
     /// <summary>
-    /// 启用ScrollRect滚动
+    /// 试玩托盘只显示当前波次，不允许滚动，始终保持禁用
     /// </summary>
     public void EnableScrollRect() {
-        if (scrollRect != null) {
-            scrollRect.enabled = true;
-        }
+        DisableScrollRect();
     }
 
     /// <summary>
@@ -125,29 +123,9 @@ public class StickerLayer : MonoBehaviour {
         if (scrollRect == null) {
             scrollRect = GetComponent<ScrollRect>();
         }
-        if (scrollRect == null || leftArrow == null || rightArrow == null) return;
-
-        const float threshold = 0.01f;
-        float normalizedPosition = scrollRect.normalizedPosition.x;
-        leftArrow.SetActive(normalizedPosition > threshold);
-        rightArrow.SetActive(normalizedPosition < (1f - threshold));
-    }
-
-    #endregion
-
-    #region 文本显示
-
-    /// <summary>
-    /// 更新文本显示，显示剩余未完成数量/总数
-    /// </summary>
-    public void UpdateTextDisplay() {
-        if (textComponent == null) return;
-        if (LevelManager.Instance == null) return;
-
-        int totalCount = LevelManager.Instance.GetTotalWaveChildrenCount();
-        int completedCount = LevelManager.Instance.GetCompletedWaveChildrenCount();
-        int remainingCount = totalCount - completedCount;
-        textComponent.text = $"{remainingCount}/{totalCount}";
+        // 试玩托盘不滚动，左右箭头始终隐藏
+        if (leftArrow != null) leftArrow.SetActive(false);
+        if (rightArrow != null) rightArrow.SetActive(false);
     }
 
     #endregion
@@ -159,7 +137,6 @@ public class StickerLayer : MonoBehaviour {
     /// </summary>
     public void InitializeLayer() {
         InitializeLayerByType();
-        UpdateTextDisplay();
     }
 
     /// <summary>
@@ -181,48 +158,6 @@ public class StickerLayer : MonoBehaviour {
     #endregion
 
     #region 贴纸创建通用方法
-
-    /// <summary>
-    /// 过滤需要创建的贴纸（排除已存在和不符合条件的）
-    /// </summary>
-    /// <param name="prefabs">贴纸预制列表</param>
-    /// <param name="shouldCreate">判断是否应该创建的条件委托，如果为null则只检查是否已存在</param>
-    /// <returns>需要创建的贴纸列表</returns>
-    private List<GameObject> FilterStickersToCreate(List<GameObject> prefabs, System.Func<GameObject, bool> shouldCreate) {
-        List<GameObject> stickersToCreate = new List<GameObject>();
-        if (prefabs == null || prefabs.Count == 0) return stickersToCreate;
-
-        foreach (GameObject prefab in prefabs) {
-            if (prefab == null) continue;
-
-            bool alreadyExists = false;
-            if (stickerParent != null) {
-                foreach (Transform child in stickerParent) {
-                    if (child.name.Contains(prefab.name)) {
-                        alreadyExists = true;
-                        break;
-                    }
-                }
-            }
-            if (alreadyExists) continue;
-            if (shouldCreate != null && !shouldCreate(prefab)) continue;
-            stickersToCreate.Add(prefab);
-        }
-        return stickersToCreate;
-    }
-
-    /// <summary>
-    /// 过滤需要创建的贴纸（重载方法，接受数组参数）
-    /// </summary>
-    /// <param name="prefabs">贴纸预制数组</param>
-    /// <param name="shouldCreate">判断是否应该创建的条件委托，如果为null则只检查是否已存在</param>
-    /// <returns>需要创建的贴纸列表</returns>
-    private List<GameObject> FilterStickersToCreate(GameObject[] prefabs, System.Func<GameObject, bool> shouldCreate) {
-        if (prefabs == null || prefabs.Length == 0) {
-            return new List<GameObject>();
-        }
-        return FilterStickersToCreate(new List<GameObject>(prefabs), shouldCreate);
-    }
 
     /// <summary>
     /// 在当前贴纸层中创建贴纸（根据currentLayerType自动确定贴纸类型）
@@ -248,39 +183,164 @@ public class StickerLayer : MonoBehaviour {
         if (emptyStateText != null) {
             emptyStateText.gameObject.SetActive(false);
         }
+        // 计数改由左上角面板（MyLayerGame）显示，托盘上的旧计数牌隐藏
         if (textBackground != null) {
-            textBackground.SetActive(true);
+            textBackground.SetActive(false);
         }
 
-        if (LevelManager.Instance == null) return;
-        GameObject currentLevel = LevelManager.Instance.GetCurrentLevel();
-        if (currentLevel == null) return;
+        // 贴纸由 LevelController 按当前波次通过 ShowWaveStickers 填充
+        ConfigureStaticTray();
+    }
 
-        LevelController levelController = currentLevel.GetComponent<LevelController>();
-        if (levelController == null || stickerParent == null) return;
+    #endregion
 
-        GameObject[] stickerArray = levelController.StickerArray;
-        if (stickerArray == null || stickerArray.Length == 0) return;
+    #region 试玩托盘（仅当前波次）
 
-        if (DataManager.Instance == null) return;
-        string levelName = "Level" + levelController.levelNum;
-        List<DataManager.LevelData> levelDataList = DataManager.Instance.GetLevelDataList(levelName);
+    private const float TRAY_THICKNESS = 252f;  // 与托盘底图 common_bg_03 高度一致
+    private const float TRAY_HEADER = 64f;      // 底图紫色标题栏厚度
+    private const float TRAY_EDGE = 28f;        // 其余三边留白
+    private const float SLOT_FILL = 0.85f;      // 贴纸占槽位的比例
 
-        List<GameObject> stickersToCreate = FilterStickersToCreate(
-            stickerArray,
-            (prefab) => {
-                if (levelDataList == null) return true;
-                foreach (DataManager.LevelData levelData in levelDataList) {
-                    if (levelData.prefabName == prefab.name) {
-                        return !levelData.isCompleted;
-                    }
-                }
-                return true;
-            }
-        );
+    private bool isPortrait = true;
+    private Image landscapeBackground;
 
-        CreateStickersInLayer(stickersToCreate);
+    /// <summary>
+    /// 托盘改为静态显示：禁用滚动、隐藏箭头，内容铺满视口并由 LayoutSlots 手动排布
+    /// </summary>
+    private void ConfigureStaticTray() {
+        if (scrollRect == null) scrollRect = GetComponent<ScrollRect>();
+        DisableScrollRect();
         UpdateArrowsVisibility();
+
+        RectTransform content = stickerParent as RectTransform;
+        if (content == null) return;
+        HorizontalLayoutGroup layoutGroup = content.GetComponent<HorizontalLayoutGroup>();
+        if (layoutGroup != null) layoutGroup.enabled = false;
+        ContentSizeFitter sizeFitter = content.GetComponent<ContentSizeFitter>();
+        if (sizeFitter != null) sizeFitter.enabled = false;
+
+        content.anchorMin = Vector2.zero;
+        content.anchorMax = Vector2.one;
+        content.pivot = new Vector2(0.5f, 0.5f);
+        content.offsetMin = Vector2.zero;
+        content.offsetMax = Vector2.zero;
+        content.localScale = Vector3.one;
+    }
+
+    /// <summary>
+    /// 竖屏：托盘在底部，贴纸横排；横屏：托盘在右侧（底图旋转 90°，标题栏朝向房间），贴纸竖排
+    /// </summary>
+    public void ApplyOrientation(bool portrait) {
+        isPortrait = portrait;
+        ConfigureStaticTray();
+
+        RectTransform rect = (RectTransform)transform;
+        if (portrait) {
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = new Vector2(1f, 0f);
+            rect.pivot = new Vector2(0.5f, 0f);
+            rect.sizeDelta = new Vector2(0f, TRAY_THICKNESS);
+        } else {
+            rect.anchorMin = new Vector2(1f, 0f);
+            rect.anchorMax = Vector2.one;
+            rect.pivot = new Vector2(1f, 0.5f);
+            rect.sizeDelta = new Vector2(TRAY_THICKNESS, 0f);
+        }
+        rect.anchoredPosition = Vector2.zero;
+
+        Image background = GetComponent<Image>();
+        if (background != null) {
+            if (background.sprite != null && background.sprite.border != Vector4.zero) background.type = Image.Type.Sliced;
+            background.enabled = portrait;
+            Image rotated = GetLandscapeBackground(background);
+            rotated.gameObject.SetActive(!portrait);
+            ((RectTransform)rotated.transform).sizeDelta = new Vector2(rect.rect.height, rect.rect.width);
+        }
+
+        RectTransform viewport = scrollRect != null ? scrollRect.viewport : null;
+        if (viewport != null) {
+            viewport.anchorMin = Vector2.zero;
+            viewport.anchorMax = Vector2.one;
+            viewport.pivot = new Vector2(0.5f, 0.5f);
+            viewport.offsetMin = portrait ? new Vector2(TRAY_EDGE, TRAY_EDGE) : new Vector2(TRAY_HEADER, TRAY_EDGE);
+            viewport.offsetMax = portrait ? new Vector2(-TRAY_EDGE, -TRAY_HEADER) : new Vector2(-TRAY_EDGE, -TRAY_EDGE);
+        }
+
+        LayoutSlots();
+    }
+
+    /// <summary>
+    /// 横屏用的旋转底图（与竖屏共用同一张图，逆时针旋转 90° 后标题栏在左侧）
+    /// </summary>
+    private Image GetLandscapeBackground(Image source) {
+        if (landscapeBackground != null) return landscapeBackground;
+
+        GameObject go = new GameObject("LandscapeBackground", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        go.layer = gameObject.layer;
+        RectTransform rt = (RectTransform)go.transform;
+        rt.SetParent(transform, false);
+        rt.SetAsFirstSibling();
+        rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.anchoredPosition = Vector2.zero;
+        rt.localRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        landscapeBackground = go.GetComponent<Image>();
+        landscapeBackground.sprite = source.sprite;
+        landscapeBackground.type = source.type;
+        landscapeBackground.color = source.color;
+        landscapeBackground.raycastTarget = false;
+        return landscapeBackground;
+    }
+
+    /// <summary>
+    /// 清空托盘并按波次顺序放入本波次待放置的贴纸
+    /// </summary>
+    public void ShowWaveStickers(List<GameObject> prefabs) {
+        if (stickerParent == null) return;
+        ConfigureStaticTray();
+
+        // 先脱离父节点再销毁，避免本帧布局仍计算旧贴纸
+        for (int i = stickerParent.childCount - 1; i >= 0; i--) {
+            Transform child = stickerParent.GetChild(i);
+            child.gameObject.SetActive(false);
+            child.SetParent(null, false);
+            Destroy(child.gameObject);
+        }
+
+        CreateStickersInLayer(prefabs);
+        LayoutSlots();
+    }
+
+    /// <summary>
+    /// 沿托盘长边等分槽位，每个贴纸居中放入并等比缩小到槽位内（保留翻转的负缩放）；
+    /// 已放置的贴纸保持缩小隐藏，只更新位置，其余贴纸不移位
+    /// </summary>
+    private void LayoutSlots() {
+        RectTransform content = stickerParent as RectTransform;
+        if (content == null) return;
+        Rect area = content.rect;
+        int count = content.childCount;
+        if (count == 0 || area.width <= 0f || area.height <= 0f) return;
+
+        float slot = (isPortrait ? area.width : area.height) / count;
+        Vector2 box = isPortrait ? new Vector2(slot, area.height) : new Vector2(area.width, slot);
+        for (int i = 0; i < count; i++) {
+            RectTransform item = content.GetChild(i) as RectTransform;
+            if (item == null) continue;
+
+            float offset = slot * (i + 0.5f) - slot * count * 0.5f;
+            item.anchorMin = item.anchorMax = new Vector2(0.5f, 0.5f);
+            item.anchoredPosition = isPortrait ? new Vector2(offset, 0f) : new Vector2(0f, -offset);
+
+            StickerItem sticker = item.GetComponent<StickerItem>();
+            if (sticker != null && !sticker.isClickable) continue;
+
+            Vector2 size = item.rect.size;
+            if (size.x <= 0f || size.y <= 0f) continue;
+            float scale = Mathf.Min(1f, box.x * SLOT_FILL / size.x, box.y * SLOT_FILL / size.y);
+            Vector3 current = item.localScale;
+            item.localScale = new Vector3(Mathf.Sign(current.x) * scale, Mathf.Sign(current.y) * scale, 1f);
+        }
     }
 
     #endregion

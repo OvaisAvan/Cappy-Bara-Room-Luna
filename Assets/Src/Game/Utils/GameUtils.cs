@@ -6,6 +6,32 @@ using System.Collections.Generic;
 /// </summary>
 public static class GameUtils {
     /// <summary>
+    /// Renderer.localBounds 的兼容实现（Luna 不支持 localBounds）：
+    /// SpriteRenderer 取精灵本地包围盒并按翻转镜像；其余渲染器由世界包围盒换算到本地坐标
+    /// </summary>
+    public static Bounds GetLocalBounds(Renderer renderer) {
+        SpriteRenderer spriteRenderer = renderer as SpriteRenderer;
+        if (spriteRenderer != null && spriteRenderer.sprite != null) {
+            Bounds spriteBounds = spriteRenderer.sprite.bounds;
+            Vector3 center = spriteBounds.center;
+            if (spriteRenderer.flipX) center.x = -center.x;
+            if (spriteRenderer.flipY) center.y = -center.y;
+            return new Bounds(center, spriteBounds.size);
+        }
+
+        Bounds world = renderer.bounds;
+        Transform t = renderer.transform;
+        Vector3 min = world.min;
+        Vector3 max = world.max;
+        Bounds local = new Bounds(t.InverseTransformPoint(world.center), Vector3.zero);
+        for (int i = 0; i < 8; i++) {
+            Vector3 corner = new Vector3((i & 1) == 0 ? min.x : max.x, (i & 2) == 0 ? min.y : max.y, (i & 4) == 0 ? min.z : max.z);
+            local.Encapsulate(t.InverseTransformPoint(corner));
+        }
+        return local;
+    }
+
+    /// <summary>
     /// 清理对象名称（移除Unity自动添加的(Clone)后缀）
     /// </summary>
     /// <param name="objectName">原始对象名称</param>
@@ -91,15 +117,10 @@ public static class GameUtils {
         // 从屏幕位置发射射线
         Ray ray = camera.ScreenPointToRay(new Vector3(screenPos.x, screenPos.y, 0));
 
-        // 临时启用触发器检测（因为贴纸的 PolygonCollider2D 被设置为 isTrigger = true）
-        bool originalQueriesHitTriggers = Physics2D.queriesHitTriggers;
-        Physics2D.queriesHitTriggers = true;
-
+        // 贴纸的 PolygonCollider2D 为 isTrigger：项目 Physics2D 设置已开启 Queries Hit Triggers
+        //（Luna 不支持运行时读写 Physics2D.queriesHitTriggers）
         // 使用2D物理系统的射线检测
         RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, maxDistance, layerMask);
-
-        // 恢复原始设置
-        Physics2D.queriesHitTriggers = originalQueriesHitTriggers;
 
         if (hits != null && hits.Length > 0) {
             // 命中某个对象：显示蓝色射线（表示检测到了物体）
@@ -212,15 +233,10 @@ public static class GameUtils {
             }
         }
 
-        // 临时启用触发器检测（因为贴纸的 PolygonCollider2D 被设置为 isTrigger = true）
-        bool originalQueriesHitTriggers = Physics2D.queriesHitTriggers;
-        Physics2D.queriesHitTriggers = true;
-
+        // 贴纸的 PolygonCollider2D 为 isTrigger：项目 Physics2D 设置已开启 Queries Hit Triggers
+        //（Luna 不支持运行时读写 Physics2D.queriesHitTriggers）
         // 使用2D物理系统的射线检测（从摄像机发射射线）
         RaycastHit2D hit = Physics2D.GetRayIntersection(camera.ScreenPointToRay(new Vector3(screenPos.x, screenPos.y, 0)), maxDistance, layerMask);
-
-        // 恢复原始设置
-        Physics2D.queriesHitTriggers = originalQueriesHitTriggers;
 
         // 进行2D射线检测
         if (hit.collider != null) {
