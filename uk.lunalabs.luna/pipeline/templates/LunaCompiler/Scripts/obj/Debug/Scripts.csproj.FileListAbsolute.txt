@@ -26,3 +26,30 @@
 /Users/owais/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/obj/Debug/Scripts.csproj.CopyComplete
 /Users/owais/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/obj/Debug/UnityScriptsCompiler.dll
 /Users/owais/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/obj/Debug/UnityScriptsCompiler.pdb
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/obj/Debug/Scripts.csproj.AssemblyReference.cache
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/obj/Debug/Scripts.csproj.CoreCompileInputs.cache
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/obj/Debug/UnityScriptsCompiler.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/obj/Debug/UnityScriptsCompiler.pdb
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/UnityScriptsCompiler.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/UnityScriptsCompiler.pdb
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.Html5.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.WebGL.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/DOTween.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Newtonsoft.Json.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.Core.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.dom.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.es5.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.scripthost.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/UnityEngine.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/UnityEngine.UI.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/UnityEngine.UniversalRenderPipeline.dll
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.Html5.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Bridge.WebGL.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Newtonsoft.Json.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.Core.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.dom.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.es5.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/bin/Debug/Retyped.scripthost.xml
+/Users/owais/Documents/01_Client Projects/Cappy_Bara_Room_LUNA/uk.lunalabs.luna/pipeline/templates/LunaCompiler/Scripts/obj/Debug/Scripts.csproj.CopyComplete
