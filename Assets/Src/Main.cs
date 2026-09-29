@@ -20,6 +20,8 @@ public class Main : MonoBehaviour {
     private void initComplete() {
         DOTween.Init(false, true);
         sc.events.On(sc.events.EventType.Game_Exit, onGameClose);
+        // 在通知 SDK 就绪前订阅开始/结束事件。
+        PlayableFlow.Bind();
         sc.sdk.OnEnterGameSuccess();
 
         //sc.window.OpenUIFormSuccess += onOpenUIFormSuccess;
@@ -37,6 +39,7 @@ public class Main : MonoBehaviour {
     private void onGameClose(SC.SCEventArgs e) {
         // 取消事件监听
         sc.events.Off(sc.events.EventType.Game_Exit, onGameClose);
+        PlayableFlow.Unbind();
 
         // 清理内存相关处理 
         DOTween.Clear(true);
