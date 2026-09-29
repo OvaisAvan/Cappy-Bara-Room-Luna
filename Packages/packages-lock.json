@@ -103,6 +103,12 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.playworks.upp": {
+      "version": "file:../uk.lunalabs.luna/scripts",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.21.25",
       "depth": 1,
