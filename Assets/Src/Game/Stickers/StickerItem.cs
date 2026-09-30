@@ -292,6 +292,8 @@ public class StickerItem : MonoBehaviour {
         if (spriteRenderer == null) return;
 
         Sprite spriteAsset = spriteRenderer.sprite;
+        // Playworks queues component destruction; hide the old renderer immediately.
+        spriteRenderer.enabled = false;
         DestroyImmediate(spriteRenderer);
 
         Image image = sprite.AddComponent<Image>();
