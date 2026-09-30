@@ -1,5 +1,5 @@
 /**
- * @version 1.0.9768.26770
+ * @version 1.0.9768.27686
  * @copyright anton
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -19290,6 +19290,8 @@ Bridge.rValue(                        obj1)._OnClear();
                 }
 
                 var spriteAsset = spriteRenderer.sprite;
+                // Playworks queues component destruction; hide the old renderer immediately.
+                spriteRenderer.enabled = false;
                 UnityEngine.Object.DestroyImmediate(spriteRenderer);
 
                 var image = this.sprite.AddComponent(UnityEngine.UI.Image);
@@ -22106,8 +22108,11 @@ Bridge.rValue(                        obj1)._OnClear();
                 }
 
                 // 应用翻转状态到创建的贴纸上（支持 SpriteRenderer 和 Image）
+                // Playworks can defer component removal after DestroyImmediate. Prefer the
+                // visible UI Image over the SpriteRenderer awaiting removal this frame.
+                var createdImage = stickerInstance.GetComponent(UnityEngine.UI.Image);
                 var createdSpriteRenderer = stickerInstance.GetComponent(UnityEngine.SpriteRenderer);
-                if (UnityEngine.Component.op_Inequality(createdSpriteRenderer, null)) {
+                if (UnityEngine.MonoBehaviour.op_Equality(createdImage, null) && UnityEngine.Component.op_Inequality(createdSpriteRenderer, null)) {
                     // SpriteRenderer 直接设置 flipX 和 flipY
                     createdSpriteRenderer.flipX = flipX;
                     createdSpriteRenderer.flipY = flipY;
@@ -22119,7 +22124,6 @@ Bridge.rValue(                        obj1)._OnClear();
                     }
                 } else {
                     // Image 组件通过 RectTransform 的 localScale 实现翻转
-                    var createdImage = stickerInstance.GetComponent(UnityEngine.UI.Image);
                     if (UnityEngine.MonoBehaviour.op_Inequality(createdImage, null)) {
                         var rectTransform = stickerInstance.GetComponent(UnityEngine.RectTransform);
                         if (UnityEngine.Component.op_Inequality(rectTransform, null)) {

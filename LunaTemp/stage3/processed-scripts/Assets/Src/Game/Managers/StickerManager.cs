@@ -1250,8 +1250,11 @@ public class StickerManager : MonoBehaviour {
         if (!flipX && !flipY) return;
 
         // 应用翻转状态到创建的贴纸上（支持 SpriteRenderer 和 Image）
+        // Playworks can defer component removal after DestroyImmediate. Prefer the
+        // visible UI Image over the SpriteRenderer awaiting removal this frame.
+        Image createdImage = stickerInstance.GetComponent<Image>();
         SpriteRenderer createdSpriteRenderer = stickerInstance.GetComponent<SpriteRenderer>();
-        if (createdSpriteRenderer != null) {
+        if (createdImage == null && createdSpriteRenderer != null) {
             // SpriteRenderer 直接设置 flipX 和 flipY
             createdSpriteRenderer.flipX = flipX;
             createdSpriteRenderer.flipY = flipY;
@@ -1263,7 +1266,6 @@ public class StickerManager : MonoBehaviour {
             }
         } else {
             // Image 组件通过 RectTransform 的 localScale 实现翻转
-            Image createdImage = stickerInstance.GetComponent<Image>();
             if (createdImage != null) {
                 RectTransform rectTransform = stickerInstance.GetComponent<RectTransform>();
                 if (rectTransform != null) {
