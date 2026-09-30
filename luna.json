@@ -30686,6 +30686,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Resources/unity_builtin_extra/Default-Particle"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 85,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Resources/Scene/Room/map08_bg.jpg"
                     }
                 ]
             },

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 4659285985263045434}
   armatureNode: {fileID: 429759203006378527}
+  useStaticSpriteInPlayable: 1
   effectNode: {fileID: 0}
   hideSpriteWhenEffectActive: 0
   type: 0

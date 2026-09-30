@@ -574,6 +574,17 @@ public class StickerManager : MonoBehaviour {
             externalSpriteRenderer = targetObject.GetComponentInChildren<SpriteRenderer>();
         }
 
+#if UNITY_LUNA
+        // These characters have approved static fallbacks: never hide their
+        // placed sprites in favor of an unreliable exported DragonBones mesh.
+        if (stickerItem.useStaticSpriteInPlayable && externalSpriteRenderer != null) {
+            if (stickerItem.armatureNode != null) stickerItem.armatureNode.gameObject.SetActive(false);
+            externalSpriteRenderer.enabled = true;
+            externalSpriteRenderer.color = Color.white;
+            return;
+        }
+#endif
+
         int sortingOrder = 0;
         if (externalSpriteRenderer != null) {
             sortingOrder = externalSpriteRenderer.sortingOrder;

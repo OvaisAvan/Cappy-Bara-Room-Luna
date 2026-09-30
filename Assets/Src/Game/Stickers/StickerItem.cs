@@ -14,11 +14,6 @@ public class StickerItem : MonoBehaviour {
     private const float SCREEN_TO_WORLD_Z = 10f;
 
     /// <summary>
-    /// 贴纸被点击时的图片格式
-    /// </summary>
-    private const string CLICKED_IMAGE_FORMAT = "02";
-
-    /// <summary>
     /// 默认贴纸最大高度
     /// </summary>
     private const float DEFAULT_MAX_HEIGHT = 200f;
@@ -64,6 +59,8 @@ public class StickerItem : MonoBehaviour {
     [CustomLabel("骨骼节点")]
     [Tooltip("专门挂骨骼/龙骨等动画节点")]
     public Transform armatureNode;
+    [Tooltip("Keep the placed sprite visible instead of using DragonBones in Playworks.")]
+    public bool useStaticSpriteInPlayable;
 
     [CustomLabel("特效节点")]
     [Tooltip("专门挂特效（粒子、闪光等）的挂点")]
@@ -471,11 +468,13 @@ public class StickerItem : MonoBehaviour {
         sc.audio.Play("StickerPick");
 
         stickerManager.DisableStickerLayerScrollRect();
-        stickerManager.SwitchStickerImage(gameObject, CLICKED_IMAGE_FORMAT);
         Vector2 sizeDifference = stickerManager.CalculateSizeDifference(gameObject);
         currentDrag = stickerManager.CreateDragSticker(gameObject, screenPos, this, sizeDifference);
 
         if (currentDrag != null) {
+            // Leave the slot empty while dragging; restore only after a failed drop.
+            Image trayImage = sprite != null ? sprite.GetComponent<Image>() : null;
+            if (trayImage != null) trayImage.enabled = false;
             currentFinger = stickerManager.CreateFinger(parent: currentDrag, screenPos: screenPos, anchorPosition: fingerAnchorPosition);
         }
     }
@@ -503,7 +502,11 @@ public class StickerItem : MonoBehaviour {
         currentDrag = null;
         if (stickerManager != null) {
             stickerManager.EnableStickerLayerScrollRect();
-            if (type == StickerType.Paster) stickerManager.SwitchStickerImage(gameObject);
+            if (type == StickerType.Paster && isClickable) {
+                stickerManager.SwitchStickerImage(gameObject);
+                Image trayImage = sprite != null ? sprite.GetComponent<Image>() : null;
+                if (trayImage != null) trayImage.enabled = true;
+            }
         }
     }
 
